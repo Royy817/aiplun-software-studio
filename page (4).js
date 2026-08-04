@@ -3,10 +3,10 @@ import HtmlContent from '@/components/HtmlContent';
 export const dynamic = 'force-static';
 
 export const metadata = {
-  title: '開発費用とプロジェクト規模の目安 | Aiplun Studio',
-  description: 'Webサイト、アプリ・MVP、業務システム・AI開発の費用、期間、対応範囲の目安をご案内します。'
+  title: '特定商取引法に基づく表記 | Aiplun Studio',
+  description: 'Aiplun Studioの特定商取引法に基づく表記です。販売業者、価格、支払方法、キャンセル等について掲載しています。'
 };
 
-export default function PlansPage() {
-  return <HtmlContent file="plans.html" />;
+export default function LegalPage() {
+  return <HtmlContent file="legal.html" />;
 }

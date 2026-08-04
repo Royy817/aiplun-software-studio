@@ -1,8 +1,150 @@
-import { readFileSync } from 'node:fs';
-import path from 'node:path';
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/#top" class="logo" aria-label="Aiplun Studio トップへ"><img class="logo-mark" src="/favicon.svg" alt="" width="36" height="36"><span>Aiplun Studio</span></a>
+    <button class="menu-toggle" aria-label="メニューを開閉" aria-expanded="false" aria-controls="global-nav"><span></span><span></span><span></span></button>
+    <nav id="global-nav" class="global-nav" aria-label="グローバルナビゲーション"><a href="/#services">サービス</a><a href="/#strengths">私たちの強み</a><a href="/#works">開発実績</a><a href="/#flow">開発の流れ</a><a href="/plans">費用の目安</a></nav>
+    <a class="btn btn-primary header-cta" href="/#contact">無料で相談する</a>
+  </div>
+</header>
 
-export default function HtmlContent({ file }) {
-  const html = readFileSync(path.join(process.cwd(), 'content', file), 'utf8');
+  <main class="policy-page">
+    <section class="section policy-hero">
+      <div class="container policy-hero-inner">
+        <p class="eyebrow">Privacy Policy</p>
+        <h1>プライバシーポリシー</h1>
+        <p class="lead">Aiplun Studioにおける個人情報の取り扱いについて定めたものです。</p>
+      </div>
+    </section>
 
-  return <div dangerouslySetInnerHTML={{ __html: html }} />;
-}
+    <section class="section policy-content">
+      <div class="container">
+        <article class="policy-card">
+          <p>Aiplun Studio（以下、「当サービス」といいます。）は、当サービスが提供するアプリ開発、業務システム開発、Webサイト制作、AI活用支援、その他関連サービスにおいて取得する個人情報の重要性を認識し、個人情報の保護に関する法律その他関連法令を遵守し、適切に取り扱います。</p>
+
+          <section>
+            <h2>第1条　取得する情報</h2>
+            <p>当サービスは、お問い合わせ、無料相談、サービスのお申し込み、メールでのご連絡等に際し、以下の情報を取得する場合があります。</p>
+            <ol>
+              <li>氏名または担当者名</li>
+              <li>会社名、店舗名または屋号</li>
+              <li>メールアドレス</li>
+              <li>電話番号</li>
+              <li>お問い合わせ内容</li>
+              <li>ご相談内容、制作・導入に関するヒアリング内容</li>
+              <li>アプリ、業務システム、Webサイト、AI活用支援の企画・開発・運用に必要な情報</li>
+              <li>当サイトの閲覧履歴、アクセス状況、Cookie等の情報</li>
+            </ol>
+          </section>
+
+          <section>
+            <h2>第2条　利用目的</h2>
+            <p>当サービスは、取得した個人情報を以下の目的で利用します。</p>
+            <ol>
+              <li>お問い合わせへの回答、本人確認、連絡のため</li>
+              <li>無料相談、ヒアリング、見積もり、提案のため</li>
+              <li>アプリ開発、業務システム開発、Webサイト制作、AI活用支援その他サービス提供のため</li>
+              <li>制作物の確認、修正、納品、公開後サポートのため</li>
+              <li>サービス料金の請求、決済、入金確認のため</li>
+              <li>契約内容の確認、変更、解約、アフターサポートのため</li>
+              <li>サービス改善、新サービス開発、品質向上のため</li>
+              <li>当サービスからのお知らせ、重要なご連絡、キャンペーン等の案内のため</li>
+              <li>不正利用、迷惑行為、トラブル等の防止および対応のため</li>
+              <li>法令または行政機関等からの要請に対応するため</li>
+            </ol>
+          </section>
+
+          <section>
+            <h2>第3条　個人情報の第三者提供</h2>
+            <p>当サービスは、次の場合を除き、本人の同意なく個人情報を第三者に提供しません。</p>
+            <ol>
+              <li>本人の同意がある場合</li>
+              <li>法令に基づく場合</li>
+              <li>人の生命、身体または財産の保護のために必要がある場合</li>
+              <li>公衆衛生の向上または児童の健全な育成の推進のために特に必要がある場合</li>
+              <li>国の機関、地方公共団体またはその委託を受けた者が法令の定める事務を遂行するうえで協力する必要がある場合</li>
+              <li>業務委託先に対し、利用目的の達成に必要な範囲で提供する場合</li>
+            </ol>
+          </section>
+
+          <section>
+            <h2>第4条　業務委託</h2>
+            <p>当サービスは、サービス提供に必要な範囲で、サーバー管理、ドメイン管理、フォーム管理、決済、メール配信、アクセス解析、制作補助、その他業務の一部を外部事業者に委託する場合があります。</p>
+            <p>この場合、委託先に対して必要かつ適切な監督を行います。</p>
+          </section>
+
+          <section>
+            <h2>第5条　Cookie等の利用</h2>
+            <p>当サイトでは、利用状況の把握、サービス改善、アクセス解析のためにCookie等を使用する場合があります。</p>
+            <p>Cookieとは、利用者がWebサイトを閲覧した際に、ブラウザに保存される情報です。Cookieにより取得される情報には、特定の個人を直接識別できる情報は含まれません。</p>
+            <p>利用者は、ブラウザの設定によりCookieの利用を拒否することができます。ただし、Cookieを拒否した場合、当サイトの一部機能が利用できない場合があります。</p>
+          </section>
+
+          <section>
+            <h2>第6条　アクセス解析ツールについて</h2>
+            <p>当サイトでは、サイトの利用状況を把握し、サービス改善に役立てるため、Google Analytics等のアクセス解析ツールを利用する場合があります。</p>
+            <p>これらのツールはCookieを使用し、匿名のトラフィックデータを収集する場合があります。収集される情報は、各サービス提供事業者のプライバシーポリシーに基づいて管理されます。</p>
+          </section>
+
+          <section>
+            <h2>第7条　外部サービスの利用</h2>
+            <p>当サービスでは、お問い合わせフォーム、メール配信、決済、アクセス解析、サーバー管理、その他サービス提供に必要な範囲で外部サービスを利用する場合があります。</p>
+            <p>これらの外部サービスの利用にあたっては、各サービス提供事業者の利用規約およびプライバシーポリシーが適用される場合があります。</p>
+          </section>
+
+          <section>
+            <h2>第8条　個人情報の管理</h2>
+            <p>当サービスは、取得した個人情報について、不正アクセス、紛失、破壊、改ざん、漏えい等を防止するため、適切な安全管理措置を講じます。</p>
+            <p>また、個人情報を取り扱う関係者に対して、必要かつ適切な管理を行います。</p>
+          </section>
+
+          <section>
+            <h2>第9条　個人情報の開示・訂正・利用停止等</h2>
+            <p>本人から、当サービスが保有する個人情報について、開示、訂正、追加、削除、利用停止、第三者提供の停止等の請求があった場合、本人確認のうえ、法令に従い適切に対応します。</p>
+            <p>ご希望の場合は、本ポリシー末尾のお問い合わせ窓口までご連絡ください。</p>
+          </section>
+
+          <section>
+            <h2>第10条　個人情報の保存期間</h2>
+            <p>当サービスは、取得した個人情報を、利用目的の達成に必要な範囲で保存します。</p>
+            <p>お問い合わせや契約に関する情報は、対応履歴の確認、トラブル防止、法令上必要な対応のため、一定期間保存する場合があります。</p>
+            <p>保存の必要がなくなった個人情報については、適切な方法で削除または廃棄します。</p>
+          </section>
+
+          <section>
+            <h2>第11条　未成年者の個人情報</h2>
+            <p>未成年者が当サービスにお問い合わせまたはお申し込みを行う場合は、必要に応じて保護者または法定代理人の同意を得たうえで行ってください。</p>
+          </section>
+
+          <section>
+            <h2>第12条　免責事項</h2>
+            <p>当サイトには、外部サイトへのリンクが含まれる場合があります。外部サイトにおける個人情報の取扱いについて、当サービスは責任を負いません。</p>
+            <p>外部サイトをご利用の際は、各サイトのプライバシーポリシーをご確認ください。</p>
+          </section>
+
+          <section>
+            <h2>第13条　プライバシーポリシーの変更</h2>
+            <p>当サービスは、法令の改正、サービス内容の変更、必要に応じて、本ポリシーを変更することがあります。</p>
+            <p>変更後のプライバシーポリシーは、当サイトに掲載した時点で効力を生じるものとします。</p>
+          </section>
+
+          <section>
+            <h2>第14条　お問い合わせ窓口</h2>
+            <p>本ポリシーに関するお問い合わせ、個人情報の開示・訂正・利用停止等のご請求は、以下の窓口までご連絡ください。</p>
+            <div class="policy-contact">
+              <p><strong>Aiplun Studio</strong></p>
+              <p>お問い合わせ先：<a href="https://mail.google.com/mail/?view=cm&fs=1&to=royryu221317%40gmail.com&su=Aiplun%20Studio%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B" target="_blank" rel="noopener noreferrer">royryu221317@gmail.com</a></p>
+              <p>運営者：尾島 蓮瑛</p>
+              <p>制定日：2026年6月4日</p>
+            </div>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+<footer class="site-footer">
+  <div class="container footer-top"><div class="footer-brand"><a href="/#top" class="logo"><img class="logo-mark" src="/favicon.svg" alt="" width="36" height="36"><span>Aiplun Studio</span></a><p>アイデアと課題を、使われるソフトウェアへ。</p></div><nav class="footer-nav" aria-label="フッターナビゲーション"><a href="/#services">サービス</a><a href="/#works">開発実績</a><a href="/plans">費用の目安</a><a href="/#contact">お問い合わせ</a></nav></div>
+  <div class="container footer-bottom"><p>© <span id="year"></span> Aiplun Studio</p><nav class="footer-links" aria-label="法的情報"><a href="/privacy">プライバシーポリシー</a><a href="/legal">特定商取引法に基づく表記</a><a href="/terms">利用規約</a></nav></div>
+</footer>
+
+<a class="mobile-consult-bar" href="/#contact"><strong>無料で開発相談</strong><span>アイデア段階でもOK</span></a>

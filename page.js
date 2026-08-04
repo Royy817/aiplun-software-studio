@@ -1,36 +1,46 @@
-import Script from 'next/script';
-import './globals.css';
-import './software.css';
+document.documentElement.classList.add('js-ready');
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://aiplun-studio-site.vercel.app';
+const menuToggle = document.querySelector('.menu-toggle');
+const globalNav = document.querySelector('.global-nav');
+const year = document.getElementById('year');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-export const metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: 'Aiplun Studio | アプリ・システム・Web・AI開発',
-    template: '%s'
-  },
-  description: 'アプリ開発、業務システム開発、Webサイト制作、AI活用を企画から公開後の改善まで一貫して支援するソフトウェア開発スタジオです。',
-  icons: {
-    icon: '/favicon.svg'
-  },
-  openGraph: {
-    title: 'Aiplun Studio | ソフトウェア開発スタジオ',
-    description: 'アイデアと課題を、使われるソフトウェアへ。アプリ・システム・Web・AI開発を一貫支援。',
-    url: siteUrl,
-    siteName: 'Aiplun Studio',
-    locale: 'ja_JP',
-    type: 'website'
-  }
-};
+if (year) {
+  year.textContent = new Date().getFullYear();
+}
 
-export default function RootLayout({ children }) {
-  return (
-    <html lang="ja">
-      <body suppressHydrationWarning>
-        {children}
-        <Script src="/script.js?v=software-studio-20260804" strategy="afterInteractive" />
-      </body>
-    </html>
-  );
+if (menuToggle && globalNav) {
+  const closeMenu = () => {
+    globalNav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  };
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = globalNav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  globalNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) closeMenu();
+  });
+}
+
+const revealItems = document.querySelectorAll('.reveal');
+
+if (reduceMotion || !('IntersectionObserver' in window)) {
+  revealItems.forEach((item) => item.classList.add('is-visible'));
+} else {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+
+  revealItems.forEach((item) => observer.observe(item));
 }

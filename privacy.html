@@ -1,12 +1,98 @@
-import HtmlContent from '@/components/HtmlContent';
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/#top" class="logo" aria-label="Aiplun Studio トップへ"><img class="logo-mark" src="/favicon.svg" alt="" width="36" height="36"><span>Aiplun Studio</span></a>
+    <button class="menu-toggle" aria-label="メニューを開閉" aria-expanded="false" aria-controls="global-nav"><span></span><span></span><span></span></button>
+    <nav id="global-nav" class="global-nav" aria-label="グローバルナビゲーション"><a href="/#services">サービス</a><a href="/#strengths">私たちの強み</a><a href="/#works">開発実績</a><a href="/#flow">開発の流れ</a><a href="/plans">費用の目安</a></nav>
+    <a class="btn btn-primary header-cta" href="/#contact">無料で相談する</a>
+  </div>
+</header>
 
-export const dynamic = 'force-static';
+  <main class="policy-page legal-page">
+    <section class="section policy-hero legal-hero">
+      <div class="container policy-hero-inner">
+        <p class="eyebrow">Legal Notice</p>
+        <h1>特定商取引法に基づく表記</h1>
+        <p class="lead">Aiplun Studioのサービス提供に関する販売条件・連絡先等を掲載しています。</p>
+      </div>
+    </section>
 
-export const metadata = {
-  title: '利用規約 | Aiplun Studio',
-  description: 'Aiplun Studioの利用規約です。アプリ、業務システム、Webサイト、AI活用支援および保守サービスの利用条件を掲載しています。'
-};
+    <section class="section policy-content">
+      <div class="container">
+        <article class="policy-card legal-card">
+          <div class="legal-table-wrap">
+            <table class="legal-table">
+              <tbody>
+                <tr>
+                  <th>販売業者</th>
+                  <td>尾島 蓮瑛</td>
+                </tr>
+                <tr>
+                  <th>代表責任者</th>
+                  <td>尾島 蓮瑛</td>
+                </tr>
+                <tr>
+                  <th>所在地</th>
+                  <td>※所在地については、法令に基づき適切な方法で表示します。</td>
+                </tr>
+                <tr>
+                  <th>電話番号</th>
+                  <td>070-2327-8795</td>
+                </tr>
+                <tr>
+                  <th>受付時間</th>
+                  <td>平日・土日祝 10:00〜20:00</td>
+                </tr>
+                <tr>
+                  <th>メールアドレス</th>
+                  <td><a href="https://mail.google.com/mail/?view=cm&fs=1&to=royryu221317%40gmail.com&su=Aiplun%20Studio%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B" target="_blank" rel="noopener noreferrer">royryu221317@gmail.com</a></td>
+                </tr>
+                <tr>
+                  <th>販売価格</th>
+                  <td>各プランまたは各サービスの購入ページ・見積書に表示する価格。表示価格は消費税込みです。</td>
+                </tr>
+                <tr>
+                  <th>商品代金以外の必要料金</th>
+                  <td>インターネット接続料金、通信料およびパケット通信料はお客様のご負担となります。サーバー代、ドメイン代、外部サービス利用料等が発生する場合は、事前にお見積もりまたは購入ページにて表示します。</td>
+                </tr>
+                <tr>
+                  <th>代金の支払方法</th>
+                  <td>銀行振込、クレジットカード決済、その他当サービスが指定する方法</td>
+                </tr>
+                <tr>
+                  <th>代金の支払時期</th>
+                  <td>お申し込み内容の確定後、当サービスが指定する期日までにお支払いください。クレジットカード決済の場合は、各カード会社の規定に基づきます。</td>
+                </tr>
+                <tr>
+                  <th>サービスの提供時期</th>
+                  <td>お支払い確認後、ヒアリングおよび制作準備が整い次第、制作・導入作業を開始します。具体的な納期は、各プランまたは個別のお見積もりにてご案内します。</td>
+                </tr>
+                <tr>
+                  <th>返品・交換・キャンセル等</th>
+                  <td>サービスの性質上、決済完了後のお客様都合による返金・返品・交換・キャンセルはお受けしておりません。</td>
+                </tr>
+                <tr>
+                  <th>中途解約について</th>
+                  <td>月額保守サービスをご契約の場合、解約を希望される月の前月末日までにメールにてご連絡ください。すでにお支払い済みの料金については、原則として返金いたしません。</td>
+                </tr>
+                <tr>
+                  <th>動作環境</th>
+                  <td>当サービスのWebサイト閲覧には、インターネット接続環境および一般的なWebブラウザが必要です。</td>
+                </tr>
+                <tr>
+                  <th>表現および商品に関する注意書き</th>
+                  <td>当サービスに掲載されている効果や成果に関する表現は、将来の成果を保証するものではありません。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
 
-export default function TermsPage() {
-  return <HtmlContent file="terms.html" />;
-}
+<footer class="site-footer">
+  <div class="container footer-top"><div class="footer-brand"><a href="/#top" class="logo"><img class="logo-mark" src="/favicon.svg" alt="" width="36" height="36"><span>Aiplun Studio</span></a><p>アイデアと課題を、使われるソフトウェアへ。</p></div><nav class="footer-nav" aria-label="フッターナビゲーション"><a href="/#services">サービス</a><a href="/#works">開発実績</a><a href="/plans">費用の目安</a><a href="/#contact">お問い合わせ</a></nav></div>
+  <div class="container footer-bottom"><p>© <span id="year"></span> Aiplun Studio</p><nav class="footer-links" aria-label="法的情報"><a href="/privacy">プライバシーポリシー</a><a href="/legal">特定商取引法に基づく表記</a><a href="/terms">利用規約</a></nav></div>
+</footer>
+
+<a class="mobile-consult-bar" href="/#contact"><strong>無料で開発相談</strong><span>アイデア段階でもOK</span></a>
