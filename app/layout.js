@@ -1,5 +1,6 @@
 import './globals.css';
 import './ai-impact.css';
+import './seo-enhancements.css';
 import Header from '../components/Header';
 import Motion from '../components/Motion';
 export const metadata={metadataBase:new URL('https://aiplun-studio.jp'),robots:{index:true,follow:true},icons:{icon:[{url:'/favicon.ico',type:'image/x-icon',sizes:'16x16 32x32 48x48'},{url:'/aiplun-icon.png',type:'image/png',sizes:'512x512'},{url:'/aiplun-icon.svg',type:'image/svg+xml',sizes:'any'}],shortcut:'/favicon.ico',apple:[{url:'/apple-touch-icon.png',sizes:'180x180',type:'image/png'}]},verification:{google:[...new Set(['td2UEvv1jeNGQMIc6wG86kLdUmSkjqNJHBcPuiYwdcI','yGfjbn0yOJEXRS5VunCfL4Cwb2fP65vF8h8BsHR3d9Q',process.env.GOOGLE_SITE_VERIFICATION].filter(Boolean))]}};
