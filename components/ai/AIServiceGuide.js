@@ -13,7 +13,7 @@ export default function AIServiceGuide(){
     <div className="container">
       <div className="ai-guide-heading"><p className="eyebrow">FROM YOUR OPERATIONS</p><h2 id="ai-guide-title">自社の仕事に置き換えて、<br/>導入を考える。</h2><p>AI導入や業務自動化で変えられるのは、ツールの名前より日々の仕事の流れです。まず、似た業務の導入イメージと費用の考え方をご覧ください。</p></div>
       <div className="ai-guide-links">
-        <a href="/#ai-impact"><span>01 / 業種別イメージ</span><strong>今の業務と、導入後を比較する <span aria-hidden="true">↗</span></strong><small>セミナー・介護・店舗・営業の4業種</small></a>
+        <a href="/services/seminar-automation"><span>01 / セミナー運営</span><strong>申込から受付・フォローまでをつなぐ <span aria-hidden="true">↗</span></strong><small>LINE連携・業務自動化の導入範囲と費用</small></a>
         <a href="/#ai-simulator"><span>02 / コストの想定</span><strong>業務時間相当を試算する <span aria-hidden="true">↗</span></strong><small>人数・時給・稼働日数を変えて試せます</small></a>
         <a href="/works/quest-ai"><span>03 / 自社開発の実例</span><strong>クエストAIの画面と構成を見る <span aria-hidden="true">↗</span></strong><small>顧客管理・LINE案内・QR受付・アンケート</small></a>
       </div>
