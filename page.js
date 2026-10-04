@@ -1,46 +1,25 @@
-document.documentElement.classList.add('js-ready');
-
-const menuToggle = document.querySelector('.menu-toggle');
-const globalNav = document.querySelector('.global-nav');
-const year = document.getElementById('year');
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-if (year) {
-  year.textContent = new Date().getFullYear();
-}
-
-if (menuToggle && globalNav) {
-  const closeMenu = () => {
-    globalNav.classList.remove('open');
-    menuToggle.setAttribute('aria-expanded', 'false');
-  };
-
-  menuToggle.addEventListener('click', () => {
-    const isOpen = globalNav.classList.toggle('open');
-    menuToggle.setAttribute('aria-expanded', String(isOpen));
-  });
-
-  globalNav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 900) closeMenu();
-  });
-}
-
-const revealItems = document.querySelectorAll('.reveal');
-
-if (reduceMotion || !('IntersectionObserver' in window)) {
-  revealItems.forEach((item) => item.classList.add('is-visible'));
-} else {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
-
-  revealItems.forEach((item) => observer.observe(item));
-}
+import IndustryExplorer from '../components/ai/IndustryExplorer';
+import SavingsSimulator from '../components/ai/SavingsSimulator';
+import AIApproach from '../components/ai/AIApproach';
+import HeroExperience from '../components/HeroExperience';
+import QuestShowcase from '../components/QuestShowcase';
+import BlogCards from '../components/BlogCards';
+import {pageMetadata,siteUrl} from '../lib/seo';
+export const metadata=pageMetadata('');
+import Services from '../components/Services';
+import SwipeRail from '../components/SwipeRail';
+import ContactBrief from '../components/ContactBrief';
+import BrandFilm from '../components/BrandFilm';
+const steps=[['相談する','実現したいこと、今の課題や予算をお聞かせください。'],['整理する','必要な機能と優先順位を整理し、費用をご提案します。'],['デザインする','実際の画面を見ながら、使いやすい体験を設計します。'],['つくる','大切な機能から開発し、動作を確認します。'],['育てる','公開後の声をもとに、改善や機能追加を支援します。']];
+const faq=[['アイデアだけでも相談できますか？','はい。まだ内容が固まっていなくても大丈夫です。目的や利用者を整理し、必要な機能と進め方を一緒に考えます。'],['小規模な制作・改修にも対応していますか？','はい。LP制作、既存サイトの改善、小さな業務ツール、機能追加など、必要な範囲に絞って対応します。'],['アプリとWebシステム、どちらがよいですか？','利用場面、必要な機能、予算、運用方法を伺ってご提案します。Web版で検証してからアプリ化する進め方も可能です。'],['開発期間はどのくらいですか？','Webサイトは1〜4週間程度が目安です。アプリ・業務システムは機能により異なるため、ヒアリング後にスケジュールをご提示します。'],['公開後の保守や改善もお願いできますか？','はい。文章・画像の更新、障害対応、機能改善など、内容に合わせて継続的にサポートします。'],['相談したら契約しなければなりませんか？','いいえ。初回相談は無料です。ご提案とお見積もりをご確認いただいたうえで、ご依頼をご判断ください。']];
+export default function Home(){return <main id="main-content"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({'@context':'https://schema.org','@graph':[{'@type':'Organization','@id':siteUrl+'/#organization',name:'Aiplun Studio',url:siteUrl,email:'royryu221317@gmail.com',description:'AIとシステムによる業務効率化・自動化を、業務整理から開発・運用改善まで支援。Web制作・アプリ開発にも対応する開発スタジオ。'},{'@type':'WebSite','@id':siteUrl+'/#website',url:siteUrl,name:'Aiplun Studio',inLanguage:'ja',publisher:{'@id':siteUrl+'/#organization'}}]}).replace(/</g,'\\u003c')}}/><HeroExperience/>
+<nav className="mobile-section-links wrap" aria-label="知りたい内容から探す"><a href="#services">サービス <span>↗</span></a><a href="#works">制作実績 <span>↗</span></a><a href="/plans">費用の目安 <span>↗</span></a></nav><BrandFilm/><IndustryExplorer/><SavingsSimulator/><AIApproach/><section className="studio-introduction wrap" aria-labelledby="studio-intro-title"><div><p className="eyebrow">AIPLUN STUDIO</p><h2 id="studio-intro-title">自分たちのサービスも、<br/>企画から公開まで。</h2><p>AIデートプランアプリ「アイプラ」と、LINE連携CRM「クエストAI」。自社サービスの開発経験をもとに、画面づくりから公開・運用までご相談に応じます。</p></div><div className="studio-proof"><a href="#aiplun-app"><span>iOSアプリ / App Store公開</span><strong>アイプラ <span>↗</span></strong><p>AIによるプラン提案、課金導入、継続改善。</p></a><a href="/works/quest-ai"><span>業務システム / 自社開発</span><strong>クエストAI <span>↗</span></strong><p>顧客管理、LINE案内、アンケート、QR受付。</p></a></div></section>
+<section className="section wrap" id="services"><div className="section-top"><p className="eyebrow">01 — WHAT WE DO</p><span className="section-note">4つの領域を、ひとつのチームで。</span></div><div className="section-heading"><h2>AI・システム・Web・アプリ。<br/>事業を支える、4つの支援。</h2><p>日々の業務改善から、新しいサービスづくりまで。<br/>課題の整理から開発・運用まで、一緒に進めます。</p></div><Services/></section>
+<section className="works-section" id="works"><div className="wrap"><div className="section-top"><p className="eyebrow">02 — WORKS & SHOWCASE</p><span className="section-note">自分たちでも、つくり、育てています。</span></div><div className="section-heading"><h2>開発実績と、Web制作例。</h2><p>企画・公開・運用で得た知見を、<br/>あなたのプロジェクトにも。</p></div><nav className="works-nav" aria-label="実績・制作例から選ぶ"><a href="#aiplun-app">アイプラ <span>アプリ</span></a><a href="#quest-ai">クエストAI <span>業務システム</span></a><a href="#suiren">SUIREN <span>ホテルサイト</span></a><a href="#komorebi">KOMOREBI <span>カフェサイト</span></a></nav><SwipeRail id="works-track" label="開発実績・Web制作例" className="works-track"><article className="work-feature" id="aiplun-app"><div className="work-image"><img src="/aiplun-screen.webp" alt="アイプラのApp Store掲載画像。AIがデートプランを提案するアプリ" width="600" height="1300" loading="lazy"/><span className="work-image-label">AIPLUN / OUR PRODUCT</span></div><div className="work-info"><p className="eyebrow">自社開発 · iOS APP · AI</p><h3>行き先選びを支える、<br/>AIデートプラン。</h3><h4>AIデートプランアプリ「アイプラ」</h4><p>エリアや雰囲気、予算に合わせてAIがデートプランを提案。企画からUI設計、開発、ストア公開、課金導入、継続改善まで取り組んでいます。</p><dl><div><dt>対応範囲</dt><dd>企画 / デザイン / 開発 / 運用</dd></div><div><dt>公開先</dt><dd>iOS / App Store</dd></div></dl><a className="text-link" href="https://apps.apple.com/jp/app/id6758015455" target="_blank" rel="noopener noreferrer">App Storeで見る <span>↗</span></a></div></article><QuestShowcase/><article className="website-example" id="suiren"><a className="website-example-preview" href="https://suiren-ocean-retreat.roy-0817-soccer.chatgpt.site" target="_blank" rel="noopener noreferrer" aria-label="SUIRENのデモサイトを見る（新しいタブ）"><div className="preview-toolbar" aria-hidden="true"><span>WEB DESIGN / CONCEPT SITE</span><span>↗</span></div><img src="/suiren-preview.webp" alt="SUIRENのトップ画面。海を望むホテルの写真に『海と、余白と。』の見出しを配置したデザイン" width="1200" height="750" loading="lazy" decoding="async"/></a><div className="website-example-copy"><p className="eyebrow">WEB制作例 / HOTEL &amp; RETREAT</p><h3>客室と料理を伝える、<br/>ホテルサイト。</h3><h4>SUIREN — Ocean Retreat</h4><p>大きな写真で世界観を伝え、滑らかなアニメーションで、ページを巡る体験まで印象的に。ホテルや旅館、店舗など、その場所の魅力が伝わるホームページをご提案します。</p><ul className="tags"><li>写真を活かしたデザイン</li><li>アニメーション</li><li>客室・ダイニングの紹介</li></ul><div className="website-example-actions"><a className="button dark" href="https://suiren-ocean-retreat.roy-0817-soccer.chatgpt.site" target="_blank" rel="noopener noreferrer">デモサイトを見る <span>↗</span></a><a className="text-link" href="#contact">こんなサイトを相談する <span>→</span></a></div><p className="website-example-note">※ 架空のホテルを題材にした制作サンプルです。実在施設の受託実績ではありません。</p></div></article><article className="website-example cafe-example" id="komorebi"><a className="website-example-preview" href="https://komorebi-coffee-bake.roy-0817-soccer.chatgpt.site" target="_blank" rel="noopener noreferrer" aria-label="KOMOREBIのデモサイトを見る（新しいタブ）"><div className="preview-toolbar" aria-hidden="true"><span>WEB DESIGN / CAFE CONCEPT</span><span>↗</span></div><img src="/komorebi-preview.webp" alt="KOMOREBIのトップ画面。木漏れ日が差し込むカフェの写真と、落ち着いた色合いのデザイン" width="1200" height="750" loading="lazy" decoding="async"/></a><div className="website-example-copy"><p className="eyebrow">WEB制作例 / CAFE &amp; BAKE</p><h3>メニューから来店案内まで、<br/>カフェのホームページ。</h3><h4>KOMOREBI — COFFEE &amp; BAKE</h4><p>木漏れ日の写真と、温かみのある色・文字・余白。カフェの世界観を大切にしながら、メニューや店内紹介、来店案内へつながるホームページの制作例です。</p><ul className="tags"><li>店舗の世界観を表現</li><li>写真・アニメーション</li><li>メニュー・来店案内</li></ul><div className="website-example-actions"><a className="button dark" href="https://komorebi-coffee-bake.roy-0817-soccer.chatgpt.site" target="_blank" rel="noopener noreferrer">デモサイトを見る <span>↗</span></a><a className="text-link" href="#contact">店舗サイトを相談する <span>→</span></a></div><p className="website-example-note">※ 架空のカフェを題材にした制作サンプルです。</p></div></article></SwipeRail><div className="examples"><p>こんな開発にも対応しています <small>※ 対応可能な開発例です。</small></p><SwipeRail id="examples-track" label="対応可能な開発例" className="examples-track"><a href="/services/business-systems"><span>01 / SYSTEM</span><h3>顧客・案件管理</h3><p>情報と対応履歴をまとめ、毎日の管理をスムーズに。</p><strong>対応範囲を見る →</strong></a><a href="/services/ai-automation"><span>02 / AI</span><h3>AIナレッジ検索</h3><p>社内の資料や情報から、必要な答えを探せる仕組み。</p><strong>対応範囲を見る →</strong></a><a href="/services/web-production"><span>03 / WEB</span><h3>サービス・企業サイト</h3><p>事業の強みを伝え、相談につながるホームページ。</p><strong>対応範囲を見る →</strong></a></SwipeRail></div></div></section>
+<section className="section wrap" id="strengths"><div className="section-top"><p className="eyebrow">03 — OUR APPROACH</p></div><div className="approach-layout"><div className="approach-intro"><h2>公開するところまで。<br/><span className="blue">使い続けるところまで。</span></h2><figure className="approach-photo"><img src="/studio-collaboration.webp" alt="ノートパソコンを囲んで開発について話し合うイメージ" width="1200" height="720" loading="lazy" decoding="async"/><figcaption>対話を重ねながら、次の一歩を。<small>※ 写真はイメージです。</small></figcaption></figure></div><div className="approach-list">{[['必要な機能を、一緒に絞る。','誰が、どんな場面で使うのか。まず取り組む範囲を整理し、機能と費用を確認してから開発に進みます。'],['画面を見ながら、決める。','文章だけでは伝わりにくい操作や配置も、画面を共有して確認。使う人の動きに合わせて調整します。'],['公開後の更新も、相談できる。','文章や画像の更新、機能の追加、日々の運用で気づいた改善。必要な支援の範囲を相談しながら対応します。']].map(([title,text],i)=><article key={title}><span>0{i+1}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></div></section>
+<section className="team-section" id="team" aria-labelledby="team-title"><div className="wrap"><div className="team-heading"><p className="eyebrow">私たちについて</p><h2 id="team-title">誰かの「困った」を、<br/>自分たちで作って解決したい。</h2><p>立命館大学で学ぶ二人で、Aiplun Studioを運営しています。アイプラやクエストAIなど、自分たちのサービスを開発しながら、アプリ・Webサイト・業務システムの制作に取り組んでいます。</p></div><div className="team-members"><article className="team-member"><div className="member-heading"><span className="member-initial" aria-hidden="true">R</span><div><p className="member-role">Aiplun Studio 共同代表</p><h3>尾島 蓮瑛 <span>おじま ろい</span></h3><p className="member-school">立命館大学 法学部</p></div></div><p>誰かの夢や挑戦を聞き、現場を知り、自分に何ができるかを考えて形にする。その過程にやりがいを感じています。</p><p>お客様を一番に考え、実現したいことや困っていることを丁寧に伺うことを大切にしています。ご予算や日々の使い方にも目を向け、本当に必要なものを一緒に考えます。</p><p className="member-belief">お客様の想いを起点に、作ったものが役に立つところまで向き合いたい。</p></article><article className="team-member"><div className="member-heading"><span className="member-initial" aria-hidden="true">R</span><div><p className="member-role">Aiplun Studio</p><h3>共同代表</h3><p className="member-school">立命館大学 情報理工学部</p></div></div><p>尾島と同じ大学で学び、これまで活動を共にしてきたパートナーです。Aiplun Studioの共同代表として、サービスづくりに取り組んでいます。</p><p>それぞれ異なる分野を学ぶ二人で、アイデアを話し合い、実際に使える形へ。自社サービスの開発と改善を重ねながら、制作に向き合っています。</p></article></div><div className="team-footer"><p>「何を作ればよいか」から、一緒に考えます。</p><a className="text-link" href="#contact">私たちに相談する <span>→</span></a></div></div></section>
+<section className="process-section" id="flow"><div className="wrap"><div className="section-top"><p className="eyebrow">04 — HOW WE BUILD</p></div><div className="section-heading"><h2>最初の会話から、<br/>一歩ずつ。</h2><p>専門用語に詳しくなくても大丈夫。<br/>進捗と判断材料を共有しながら進めます。</p></div><SwipeRail id="process-track" label="開発の流れ" className="process-grid" as="ol">{steps.map(([title,text],i)=><li key={title}><span>0{i+1}</span><h3>{title}</h3><p>{text}</p></li>)}</SwipeRail></div></section>
+<section className="section wrap budget" id="pricing"><div><p className="eyebrow">05 — BUDGET</p><h2>目的に合わせて、<br/>必要な開発を。</h2><p>Web制作・システム開発・MVP開発。<br/>実現したいことを整理し、範囲と費用をご提案します。</p><a className="text-link" href="/plans">費用・開発規模の目安 <span>↗</span></a></div><div className="budget-list"><a href="/plans#web"><div><h3>Web制作</h3><p>事業の魅力を伝え、問い合わせにつなげるサイト</p></div><strong className="quote">個別見積もり ↗</strong></a><a href="/plans#system"><div><h3>システム開発</h3><p>顧客管理・LINE連携・業務の自動化</p></div><strong className="quote">個別見積もり ↗</strong></a><a href="/plans#mvp"><div><h3>MVP開発</h3><p>新規サービスの検証に必要な機能を形に</p></div><strong className="quote">個別見積もり ↗</strong></a><p className="budget-note">内容・規模に合わせて、着手前にお見積もりします。</p><aside className="light-offer"><div><p className="eyebrow">SMALL START</p><h3>ライト制作 <span>3万円〜</span></h3><p>掲載内容と制作範囲を絞って、小さく公開したい方へ。対応範囲はご相談時に確認します。</p></div><a href="/plans#light">ライト制作の詳細 →</a></aside></div></section>
+<section className="faq-section wrap section" id="faq"><div><p className="eyebrow">06 — FAQ</p><h2>気になることを、<br/>あらかじめ。</h2></div><div className="faq-list">{faq.map(([q,a])=><details key={q}><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div></section>
+<section className="section wrap blog-home" id="blog"><p className="eyebrow">FIELD NOTES</p><div className="blog-home-heading"><h2>仕事の中で、AIを使う。</h2><a className="text-link" href="/blog">ブログ一覧を見る ↗</a></div><p className="blog-home-lead">セミナー運営やLINE配信。身近な業務から試せる、入力例と確認手順。</p><BlogCards/></section>
+<section className="contact" id="contact"><div className="wrap"><p className="eyebrow">LET’S BUILD SOMETHING GOOD.</p><div className="contact-grid"><h2>作りたいものを、<br/>聞かせてください。</h2><p className="contact-form-lead">短いひと言からで大丈夫です。<br/>予算や時期が未定でも、ご相談いただけます。</p></div><ContactBrief/><div className="contact-foot"><p>課題の整理から、最初の一歩を一緒に考えます。</p><p>初回相談無料 / 全国オンライン対応 / 原則48時間以内に返信</p></div></div></section></main>}

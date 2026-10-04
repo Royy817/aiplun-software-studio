@@ -1,0 +1,18 @@
+.brand-film{padding:clamp(64px,7vw,112px) 0;background:#10141b;color:#fff;scroll-margin-top:90px}
+.brand-film-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:32px}
+.brand-film .eyebrow{color:#a9b4c6;font-size:.75rem;letter-spacing:.16em;margin:0 0 20px}
+.brand-film-heading h2{font-size:clamp(2.2rem,4.3vw,4.5rem);line-height:1.35;letter-spacing:-.035em;margin:0;font-weight:700}
+.brand-film-heading>p{font-size:1rem;color:#c1c8d4;line-height:1.9;margin:0 0 4px}
+.brand-film-player{position:relative;aspect-ratio:16/9;background:#080b10;border:1px solid #333a46;overflow:hidden}
+.brand-film-player video{display:block;width:100%;height:100%;object-fit:contain}
+.brand-film-play{position:absolute;left:32px;bottom:32px;display:flex;align-items:center;gap:16px;border:1px solid #ffffff45;background:#111722e8;color:#fff;padding:16px 24px;text-align:left;cursor:pointer;font:inherit;font-size:1rem;transition:background .2s,border-color .2s}
+.brand-film-play:hover{background:#253248;border-color:#fff}
+.brand-film-play:focus-visible{outline:3px solid #99baff;outline-offset:5px}
+.brand-film-play:disabled{cursor:wait;opacity:.85}
+.brand-film-play-icon{display:grid;place-items:center;width:44px;height:44px;border:1px solid #ffffff70;border-radius:50%;font-size:1rem;padding-left:3px}
+.brand-film-play small{display:block;color:#b8c3d4;font-size:.875rem;margin-top:5px}
+.brand-film-foot{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:24px;font-size:.875rem;color:#abb7c8}
+.brand-film-foot p{margin:0}.brand-film-foot a{color:#fff;text-decoration:none;border-bottom:1px solid #778598;padding-bottom:5px}
+.brand-film-foot a:hover{border-color:#fff}.brand-film-error{color:#f6cbcb;font-size:1rem;line-height:1.8}.brand-film-error a{color:inherit}
+@media(max-width:700px){.brand-film-heading{display:block;margin-bottom:24px}.brand-film-heading>p{margin-top:18px}.brand-film-play{left:50%;bottom:50%;transform:translate(-50%,50%);padding:12px 16px;gap:12px;white-space:nowrap;font-size:.875rem}.brand-film-play-icon{width:36px;height:36px;flex-shrink:0}.brand-film-play small{font-size:.75rem}.brand-film-foot{display:block;line-height:1.8}.brand-film-foot a{display:inline-block;margin-top:12px}.brand-film .eyebrow{font-size:.75rem;letter-spacing:.12em}}
+@media(prefers-reduced-motion:reduce){.brand-film-play{transition:none}}
