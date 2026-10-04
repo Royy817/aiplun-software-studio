@@ -1,19 +1,17 @@
-const services = ['AI・自動化', '業務システム', 'Web制作', 'アプリ開発'];
-
-export default function HomepageAssembly() {
- return <div className="opening-plane website-plane" role="img" aria-label="見出し、サービス、制作例、問い合わせが順に組み上がり、Aiplun Studioのホームページが完成する立体モーション">
-  <div className="website-shadow" aria-hidden="true"/>
-  <div className="website-browser" aria-hidden="true">
-   <div className="website-toolbar"><div><i/><i/><i/></div><span>aiplun-studio.jp</span><span>↗</span></div>
-   <div className="website-sheet">
-    <div className="website-piece website-nav"><strong>Aiplun<span> Studio</span></strong><div><span>SERVICE</span><span>WORKS</span><b>CONTACT ↗</b></div></div>
-    <div className="website-piece website-hero"><div><span className="website-kicker">IDEAS INTO POSSIBILITY.</span><strong>可能性を、<br/>かたちに。</strong><p>AI・システム・Web・アプリ。</p><span className="website-mini-button">一緒につくる ↗</span></div><div className="website-art"><span/><span/><span/></div></div>
-    <div className="website-piece website-services"><div className="website-section-label"><span>01 / WHAT WE DO</span><span>4つの支援</span></div><div className="website-service-grid">{services.map((name,index)=><div key={name}><span>0{index+1}</span><i aria-hidden="true"/><strong>{name}</strong></div>)}</div></div>
-    <div className="website-piece website-work"><div className="website-section-label"><span>02 / SELECTED WORKS</span><span>アイデアを実装へ</span></div><div className="website-work-grid"><div><div className="website-work-visual website-work-system"><i/><i/><i/></div><span>BUSINESS SYSTEM</span></div><div><div className="website-work-visual website-work-app"><i/><i/></div><span>APP EXPERIENCE</span></div></div></div>
-    <div className="website-piece website-contact"><div><span>LET’S BUILD SOMETHING GOOD.</span><strong>次の一歩を、一緒に。</strong></div><b>相談する ↗</b></div>
-    <div className="website-piece website-footer"><span>Aiplun Studio</span><span>DESIGNED TO WORK.</span></div>
-   </div>
-  </div>
-  <div className="website-finish" aria-hidden="true"><span>✓</span> IDEAS. DESIGN. DEVELOPMENT.</div>
+import ServiceIcon from './ServiceIcon';
+const services=[
+ {type:'ai',name:'AI活用',slug:'ai-automation',before:'問い合わせ・資料探し',after:'AIで回答・検索を補助',benefit:'繰り返す対応を、もっと楽に。'},
+ {type:'system',name:'業務システム',slug:'business-systems',before:'紙・Excelの情報',after:'顧客・予約をまとめて管理',benefit:'転記や確認の手間を減らす。'},
+ {type:'web',name:'Web制作',slug:'web-production',before:'会社・店舗の魅力',after:'相談につながるサイトへ',benefit:'強みが伝わるWeb・LP。'},
+ {type:'app',name:'アプリ開発',slug:'app-development',before:'新しいサービスの案',after:'使えるアプリ・MVPへ',benefit:'小さくつくり、公開して育てる。'},
+];
+export default function ServiceAssembly(){
+ return <div className="service-assembly" aria-labelledby="assembly-title">
+  <div className="assembly-heading"><p>WHAT WE CAN BUILD</p><h2 id="assembly-title">Aiplunでできること</h2><span>課題やアイデアを、使える仕組みへ。</span></div>
+  <div className="assembly-stage"><div className="assembly-platform" aria-hidden="true"/><div className="assembly-cards">{services.map((service,index)=><a className={'assembly-card assembly-'+service.type} href={'/services/'+service.slug} key={service.type} style={{'--card-order':index}} aria-label={service.name+'：'+service.after+'。詳しく見る'}>
+   <div className="assembly-card-top"><span className="assembly-icon"><ServiceIcon type={service.type}/></span><span className="assembly-number">0{index+1}</span></div>
+   <h3>{service.name}</h3><div className="assembly-flow"><span className="assembly-before">{service.before}</span><span className="assembly-arrow" aria-hidden="true">↓</span><strong>{service.after}</strong></div><p>{service.benefit}</p><span className="assembly-link">詳しく見る <span aria-hidden="true">↗</span></span>
+  </a>)}</div></div>
+  <div className="assembly-delivery"><span>相談・整理</span><i aria-hidden="true">→</i><span>設計・開発</span><i aria-hidden="true">→</i><strong>公開・改善</strong></div>
  </div>;
 }

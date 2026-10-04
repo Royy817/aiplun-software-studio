@@ -1,7 +1,7 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
 import DiagnosisLink from './ai/DiagnosisLink';
-import HomepageAssembly from './HomepageAssembly';
+import ServiceAssembly from './HomepageAssembly';
 import HeroBackgroundFilm from './HeroBackgroundFilm';
 
 export default function HeroExperience(){
@@ -29,13 +29,12 @@ export default function HeroExperience(){
   <div className="wrap opening-grid">
    <div className="opening-copy"><p className="opening-location">AI導入・Web制作・システム開発｜京都・大阪から全国へ</p><h1 id="opening-title"><span className="opening-line"><span>仕事に、余白を。</span></span><span className="opening-line"><span>アイデアに、</span></span><span className="opening-line opening-line-accent"><span>可能性を。</span></span></h1><p className="opening-description">AIとシステムで、入力・問い合わせ・日々の手作業を効率化。<br className="opening-desktop-break"/>企画や営業に集中できる、仕事の流れをつくります。</p><div className="opening-actions"><DiagnosisLink/><a href="#works" className="opening-secondary">制作実績を見る</a></div><p className="opening-copy-note">業務の整理から、開発・導入後の改善まで。</p></div>
    <div className="opening-visual" onPointerMove={tilt} onPointerLeave={reset}>
-    <div className="opening-scene" key={run}><p className="studio-scene-label">IDEA → DESIGN → DEVELOPMENT</p>
+    <div className="opening-scene opening-service-scene" key={run}>
      <div className="opening-scene-grid" aria-hidden="true"/>
-     <div className="opening-manifesto" aria-hidden="true"><span>MAKE</span><span>IT REAL.</span><small>ONE IDEA. EVERY POSSIBILITY.</small></div>
-     <HomepageAssembly/>
+     <ServiceAssembly/>
     </div>
-    <div className="opening-visual-caption"><a href="#services">できることを見る<span aria-hidden="true">↗</span></a><span>ホームページが完成するイメージ</span></div>
-    <div className="opening-motion-controls"><button type="button" disabled={reduced} onClick={()=>{reset();setMotion(false);setRun(v=>v+1)}} aria-label="ホームページ完成のモーションをもう一度見る"><span aria-hidden="true">↻</span> REPLAY</button><button type="button" disabled={reduced} aria-pressed={paused} onClick={()=>{reset();setMotion(!paused)}}>{paused?'サイトの動きを再開':'サイトの動きを止める'}</button></div>
+    <div className="opening-visual-caption"><a href="#services">できることを見る<span aria-hidden="true">↗</span></a><span>課題から、できることがわかる</span></div>
+    <div className="opening-motion-controls"><button type="button" disabled={reduced} onClick={()=>{reset();setMotion(false);setRun(v=>v+1)}} aria-label="4つのサービスの立体アニメーションをもう一度見る"><span aria-hidden="true">↻</span> REPLAY</button><button type="button" disabled={reduced} aria-pressed={paused} onClick={()=>{reset();setMotion(!paused)}}>{paused?'サイトの動きを再開':'サイトの動きを止める'}</button></div>
    </div>
   </div>
   <HeroBackgroundFilm/>
