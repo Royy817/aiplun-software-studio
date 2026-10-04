@@ -11,7 +11,7 @@ export default function HeroBackgroundFilm(){
   const update=()=>{
    const restricted=preference.matches||navigator.connection?.saveData===true;
    setReduced(restricted);setEnabled(!restricted);
-   if(restricted||manualPause||globalPause||!visible||document.hidden){el.pause();return;}
+   if(restricted||manualPause||globalPause||document.documentElement.classList.contains('studio-intro-active')||!visible||document.hidden){el.pause();return;}
    if(!el.getAttribute('src'))return;
    el.muted=true;
    el.play().catch(()=>{if(!disposed)setPlaying(false);});
@@ -20,9 +20,9 @@ export default function HeroBackgroundFilm(){
   playback.current=()=>{manualPause=!manualPause;setPaused(manualPause);update();};
   const motion=event=>{globalPause=event.detail?.paused===true;update();};
   const observer=new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;update();},{threshold:0});
-  observer.observe(hero);preference.addEventListener('change',update);document.addEventListener('visibilitychange',update);window.addEventListener('studio-motion-change',motion);
+  observer.observe(hero);preference.addEventListener('change',update);document.addEventListener('visibilitychange',update);window.addEventListener('studio-motion-change',motion);window.addEventListener('studio-intro-change',update);
   update();
-  return()=>{disposed=true;observer.disconnect();preference.removeEventListener('change',update);document.removeEventListener('visibilitychange',update);window.removeEventListener('studio-motion-change',motion);el.pause();};
+  return()=>{disposed=true;observer.disconnect();preference.removeEventListener('change',update);document.removeEventListener('visibilitychange',update);window.removeEventListener('studio-motion-change',motion);window.removeEventListener('studio-intro-change',update);el.pause();};
  },[]);
  // Attach the source only after checking motion and data-saving preferences.
  useEffect(()=>{if(enabled){video.current.load();sync.current();}},[enabled]);
