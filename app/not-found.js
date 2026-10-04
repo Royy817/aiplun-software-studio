@@ -1,0 +1,2 @@
+export const metadata={title:'ページが見つかりません | Aiplun Studio',robots:{index:false,follow:true}};
+export default function NotFound(){return <main id="main-content" className="wrap studio-not-found"><p className="eyebrow">404 — PAGE NOT FOUND</p><h1>お探しのページが<br/>見つかりませんでした。</h1><p>ページが移動したか、URLが変更されている可能性があります。トップページからサービスや制作実績をご覧ください。</p><a className="button dark" href="/">トップページへ <span aria-hidden="true">→</span></a></main>}

@@ -26,9 +26,9 @@ export default function HeroExperience(){
  return <section className={`opening-hero${paused?' motion-still':''}`} ref={root} aria-labelledby="opening-title">
   <div className="wrap opening-topline"><span><i aria-hidden="true"/>AIPLUN STUDIO — AI &amp; SYSTEMS</span><span>KYOTO, JAPAN / WORKING EVERYWHERE</span></div>
   <div className="wrap opening-grid">
-   <div className="opening-copy"><p className="opening-location">京都・大阪から全国へ｜AI導入・業務改善</p><h1 id="opening-title"><span className="opening-line"><span>繰り返す仕事を、</span></span><span className="opening-line"><span>減らす。</span></span><span className="opening-line opening-line-accent"><span>可能性を、増やす。</span></span></h1><p className="opening-description">AIとシステムで、入力・問い合わせ・日々の手作業を効率化。<br className="opening-desktop-break"/>企画や営業に集中できる、仕事の流れをつくります。</p><div className="opening-actions"><DiagnosisLink/><a href="#ai-impact" className="opening-secondary">業種別の導入イメージを見る</a></div><p className="opening-copy-note">業務の整理から、開発・導入後の改善まで。</p></div>
+   <div className="opening-copy"><p className="opening-location">AI導入・Web制作・システム開発｜京都・大阪から全国へ</p><h1 id="opening-title"><span className="opening-line"><span>仕事に、余白を。</span></span><span className="opening-line"><span>アイデアに、</span></span><span className="opening-line opening-line-accent"><span>可能性を。</span></span></h1><p className="opening-description">AIとシステムで、入力・問い合わせ・日々の手作業を効率化。<br className="opening-desktop-break"/>企画や営業に集中できる、仕事の流れをつくります。</p><div className="opening-actions"><DiagnosisLink/><a href="#works" className="opening-secondary">制作実績を見る</a></div><p className="opening-copy-note">業務の整理から、開発・導入後の改善まで。</p></div>
    <div className="opening-visual" onPointerMove={tilt} onPointerLeave={reset}>
-    <div className="opening-scene" key={run}>
+    <div className="opening-scene" key={run}><p className="studio-scene-label">IDEA → DESIGN → DEVELOPMENT</p>
      <div className="opening-scene-grid" aria-hidden="true"/>
      <div className="opening-manifesto" aria-hidden="true"><span>MAKE</span><span>IT REAL.</span><small>ONE IDEA. EVERY POSSIBILITY.</small></div>
      <HomepageAssembly/>
@@ -37,6 +37,6 @@ export default function HeroExperience(){
     <div className="opening-motion-controls"><button type="button" disabled={reduced} onClick={()=>{reset();setMotion(false);setRun(v=>v+1)}} aria-label="ホームページ完成のモーションをもう一度見る"><span aria-hidden="true">↻</span> REPLAY</button><button type="button" disabled={reduced} aria-pressed={paused} onClick={()=>{reset();setMotion(!paused)}}>{paused?'サイトの動きを再開':'サイトの動きを止める'}</button></div>
    </div>
   </div>
-  <div className="wrap opening-bottom"><p>Less busy. More possibility.</p><div><span>AI AUTOMATION</span><span>BUSINESS SYSTEMS</span><span>APP &amp; WEB</span></div><a href="#ai-impact" aria-label="AI導入イメージへスクロール"><span>SCROLL TO EXPLORE</span><span aria-hidden="true">↓</span></a></div>
+  <div className="wrap opening-bottom"><p>Less busy. More possibility.</p><div><span>AI AUTOMATION</span><span>BUSINESS SYSTEMS</span><span>APP &amp; WEB</span></div><a href="#services" aria-label="サービスへスクロール"><span>SCROLL TO EXPLORE</span><span aria-hidden="true">↓</span></a></div>
  </section>;
 }
