@@ -2,6 +2,7 @@
 import {useEffect,useRef,useState} from 'react';
 import DiagnosisLink from './ai/DiagnosisLink';
 import HomepageAssembly from './HomepageAssembly';
+import HeroBackgroundFilm from './HeroBackgroundFilm';
 
 export default function HeroExperience(){
  const [run,setRun]=useState(0),[paused,setPaused]=useState(false),[reduced,setReduced]=useState(false);
@@ -37,6 +38,7 @@ export default function HeroExperience(){
     <div className="opening-motion-controls"><button type="button" disabled={reduced} onClick={()=>{reset();setMotion(false);setRun(v=>v+1)}} aria-label="ホームページ完成のモーションをもう一度見る"><span aria-hidden="true">↻</span> REPLAY</button><button type="button" disabled={reduced} aria-pressed={paused} onClick={()=>{reset();setMotion(!paused)}}>{paused?'サイトの動きを再開':'サイトの動きを止める'}</button></div>
    </div>
   </div>
+  <HeroBackgroundFilm/>
   <div className="wrap opening-bottom"><p>Less busy. More possibility.</p><div><span>AI AUTOMATION</span><span>BUSINESS SYSTEMS</span><span>APP &amp; WEB</span></div><a href="#services" aria-label="サービスへスクロール"><span>SCROLL TO EXPLORE</span><span aria-hidden="true">↓</span></a></div>
  </section>;
 }
