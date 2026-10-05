@@ -107,8 +107,9 @@ h2{font-size:clamp(30px,3.15vw,46px);letter-spacing:-.055em;line-height:1.5}
 @media(max-height:520px){.opening-film-dialog .intro-film-header,.opening-film-dialog .intro-film-footer{padding:8px 16px;gap:8px}.opening-film-dialog .intro-film-header p,.opening-film-dialog .intro-film-footer>p{display:none}.opening-film-dialog .intro-film-brand{font-size:20px}.opening-film-dialog .intro-film-header button,.opening-film-dialog .intro-film-footer button{min-height:40px;padding:6px 12px}.opening-film-dialog .intro-film-footer{flex-direction:row}.opening-film-dialog .intro-film-footer>div{width:100%;justify-content:flex-end}}
 html{scroll-padding-top:calc(var(--studio-header-height,90px) + 16px)}
 
-/* Lake scenery stays visible while a dark scrim protects the copy. */
+/* Lake scenery stays visible in the first viewport while a scrim protects the copy. */
+.opening-film-background{bottom:auto;height:min(100%,calc(100svh - var(--studio-header-height,90px)));min-height:520px}
 .opening-film-background video{transform:none;opacity:1;filter:saturate(.85);object-position:center}
-.opening-film-background::after{background:linear-gradient(90deg,rgba(5,17,30,.82) 0%,rgba(5,17,30,.62) 48%,rgba(5,17,30,.28) 100%),linear-gradient(0deg,rgba(12,20,35,.82),transparent 40%)}
+.opening-film-background::after{background:linear-gradient(90deg,rgba(5,17,30,.82) 0%,rgba(5,17,30,.62) 48%,rgba(5,17,30,.28) 100%),linear-gradient(0deg,#0c1423 0%,transparent 40%)}
 .opening-copy h1,.opening-description{text-shadow:0 2px 18px rgba(0,0,0,.25)}
 @media(max-width:800px){.opening-film-background video{opacity:1;filter:saturate(.85);object-position:40% center}.opening-film-background::after{background:linear-gradient(180deg,rgba(5,17,30,.68) 0%,rgba(5,17,30,.76) 42%,rgba(12,20,35,.9) 100%)}}
