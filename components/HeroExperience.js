@@ -1,6 +1,6 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
-import DiagnosisLink from './ai/DiagnosisLink';
+import OpeningFilm from './OpeningFilm';
 import ServiceAssembly from './HomepageAssembly';
 import HeroBackgroundFilm from './HeroBackgroundFilm';
 
@@ -27,7 +27,7 @@ export default function HeroExperience(){
  return <section className={`opening-hero${paused?' motion-still':''}`} ref={root} aria-labelledby="opening-title">
   <div className="wrap opening-topline"><span><i aria-hidden="true"/>AIPLUN STUDIO — AI &amp; SYSTEMS</span><span>KYOTO, JAPAN / WORKING EVERYWHERE</span></div>
   <div className="wrap opening-grid">
-   <div className="opening-copy"><p className="opening-location">AI導入・Web制作・システム開発｜京都・大阪から全国へ</p><h1 id="opening-title"><span className="opening-line"><span>仕事に、余白を。</span></span><span className="opening-line"><span>アイデアに、</span></span><span className="opening-line opening-line-accent"><span>可能性を。</span></span></h1><p className="opening-description">AIとシステムで、入力・問い合わせ・日々の手作業を効率化。<br className="opening-desktop-break"/>企画や営業に集中できる、仕事の流れをつくります。</p><div className="opening-actions"><DiagnosisLink/><a href="#works" className="opening-secondary">制作実績を見る</a></div><p className="opening-copy-note">業務の整理から、開発・導入後の改善まで。</p></div>
+   <div className="opening-copy"><p className="opening-location">AI導入・Web制作・システム開発｜京都・大阪から全国へ</p><h1 id="opening-title"><span className="opening-line"><span>仕事に、余白を。</span></span><span className="opening-line"><span>アイデアに、</span></span><span className="opening-line opening-line-accent"><span>可能性を。</span></span></h1><p className="opening-description">AIとシステムで、入力・問い合わせ・日々の手作業を効率化。<br className="opening-desktop-break"/>企画や営業に集中できる、仕事の流れをつくります。</p><div className="opening-actions"><a href="#contact" className="button dark">制作・開発を無料で相談する</a><a href="#works" className="opening-secondary">制作実績を見る</a></div><p className="opening-copy-note">Web・アプリ・業務システム・AI活用。内容が未定でも大丈夫です。</p><OpeningFilm/></div>
    <div className="opening-visual" onPointerMove={tilt} onPointerLeave={reset}>
     <div className="opening-scene opening-service-scene" key={run}>
      <div className="opening-scene-grid" aria-hidden="true"/>
