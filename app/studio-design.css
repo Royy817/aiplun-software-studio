@@ -121,3 +121,5 @@ html{scroll-padding-top:calc(var(--studio-header-height,90px) + 16px)}
 .process-section .process-grid>li>h3{margin:24px 0 12px}
 .process-section .process-grid>li>p{grid-column:auto;align-self:stretch;width:auto;margin:0;min-width:0;overflow-wrap:anywhere;text-align:left}
 @media(max-width:800px){.process-section .process-grid{grid-template-columns:1fr}.process-section .process-grid>li>h3{margin-top:20px}}
+
+.blog-section>p>a{text-decoration:underline;text-underline-offset:4px;color:#244bff}
