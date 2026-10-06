@@ -113,3 +113,11 @@ html{scroll-padding-top:calc(var(--studio-header-height,90px) + 16px)}
 .opening-film-background::after{background:linear-gradient(90deg,rgba(5,17,30,.82) 0%,rgba(5,17,30,.62) 48%,rgba(5,17,30,.28) 100%),linear-gradient(0deg,#0c1423 0%,transparent 40%)}
 .opening-copy h1,.opening-description{text-shadow:0 2px 18px rgba(0,0,0,.25)}
 @media(max-width:800px){.opening-film-background video{opacity:1;filter:saturate(.85);object-position:40% center}.opening-film-background::after{background:linear-gradient(180deg,rgba(5,17,30,.68) 0%,rgba(5,17,30,.76) 42%,rgba(12,20,35,.9) 100%)}}
+
+/* Keep every process card aligned across desktop and swipe layouts. */
+.process-section .process-grid{gap:16px;grid-template-columns:repeat(5,minmax(0,1fr))}
+.process-section .process-grid>li,.process-section .process-grid>li:first-child,.process-section .process-grid>li:last-child{display:flex;flex-direction:column;align-items:stretch;min-width:0;padding:24px;text-align:left}
+.process-section .process-grid>li>span{padding:0}
+.process-section .process-grid>li>h3{margin:24px 0 12px}
+.process-section .process-grid>li>p{grid-column:auto;align-self:stretch;width:auto;margin:0;min-width:0;overflow-wrap:anywhere;text-align:left}
+@media(max-width:800px){.process-section .process-grid{grid-template-columns:1fr}.process-section .process-grid>li>h3{margin-top:20px}}
