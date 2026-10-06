@@ -7,7 +7,11 @@ export default function ContactBrief(){
  useEffect(()=>{const selectAI=()=>setTopic('AI業務効率化・自動化について');if(new URLSearchParams(window.location.search).get('consultation')==='ai')selectAI();window.addEventListener('aiplun:ai-consultation',selectAI);return()=>window.removeEventListener('aiplun:ai-consultation',selectAI)},[]);
  const notice=useRef(null),requestId=useRef(null),sending=useRef(false);
  useEffect(()=>{const controller=new AbortController();fetch('/api/contact',{cache:'no-store',signal:controller.signal}).then(r=>r.ok?r.json():Promise.reject()).then(data=>setReady(data.ready===true)).catch(()=>{if(!controller.signal.aborted)setReady(false)});return()=>controller.abort()},[]);
- useEffect(()=>{if(status)notice.current?.focus()},[status]);
+ useEffect(()=>{
+  if(!status)return;
+  const invalid=notice.current?.closest('form')?.querySelector('[aria-invalid="true"]');
+  if(invalid)invalid.focus();else notice.current?.focus();
+ },[status,errors]);
  const submit=async event=>{
   event.preventDefault();if(sending.current||sent)return;
   const input=Object.fromEntries(new FormData(event.currentTarget));
