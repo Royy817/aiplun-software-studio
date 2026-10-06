@@ -39,7 +39,7 @@ h2{font-size:clamp(30px,3.15vw,46px);letter-spacing:-.055em;line-height:1.5}
 .website-example-preview img{transition:transform .6s}.website-example-preview:hover img{transform:scale(1.025)}
 .examples-track>a{border-radius:12px;background:#fff}
 .brand-film{background:#141d30;position:relative}.brand-film .eyebrow{color:#9fb6ff}.brand-film-heading h2{font-size:clamp(36px,4.5vw,64px);letter-spacing:-.055em;line-height:1.4}.brand-film-player{border-radius:14px;border-color:#ffffff22}.brand-film-foot{color:#bec7d8}
-.team-section{background:#f5f7fb}.team-member{border-radius:14px;border:1px solid var(--line);box-shadow:none}.member-initial{background:#eaf0ff;color:var(--blue)}
+.team-section{background:#f5f7fb}.team-member{padding:28px;border-radius:14px;border:1px solid var(--line);box-shadow:none}.member-initial{background:#eaf0ff;color:var(--blue)}
 .process-section{background:#141d30;color:#fff}.process-section .eyebrow{color:#9fb6ff}.process-section .section-top{border-color:#ffffff26}.process-section .section-heading p{color:#bac4d5}.process-grid>li{background:#ffffff08;border:1px solid #ffffff20;border-radius:12px}.process-grid>li>span{color:#9fb6ff}.process-grid p{color:#bac4d5}
 .budget-list>a{padding-block:24px}.light-offer{border-radius:12px;background:#eef3ff}.faq-list details{padding-block:22px}.faq-list summary{line-height:1.7}.blog-card{border-radius:12px}
 .contact{background:#2452ff;color:white;padding-block:96px}.contact .eyebrow{color:#cbd7ff}.contact h2{font-size:clamp(36px,4.5vw,62px);line-height:1.4}.contact p{color:#e0e8ff}.contact .contact-foot{border-color:#ffffff40}.contact .contact-foot p{color:#e0e8ff}
