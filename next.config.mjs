@@ -1,6 +1,7 @@
 const nextConfig = {
   async redirects() {
     return [
+      { source: '/:path*', has: [{ type: 'host', value: 'www.aiplun-studio.jp' }], destination: 'https://aiplun-studio.jp/:path*', permanent: true },
       { source: '/:path*', has: [{ type: 'host', value: 'aiplun-software-studio.vercel.app' }], destination: 'https://aiplun-studio.jp/:path*', permanent: true },
       { source: '/index.html', destination: '/', permanent: true },
       { source: '/latest.html', destination: '/', permanent: true },
