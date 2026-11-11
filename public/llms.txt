@@ -1,0 +1,36 @@
+# Aiplun Studio
+
+> 京都・大阪を拠点に全国オンライン対応する開発スタジオ。AI導入・業務システム開発・ホームページ制作・アプリ開発を、課題の整理から公開後の改善まで支援します。初回相談と30分のAI業務診断は無料です。
+
+## サービス
+
+- [AI活用・自動化](https://aiplun-studio.jp/services/ai-automation): 問い合わせ対応、社内資料の検索、繰り返しの手作業をAIで効率化。AIチャットボット・社内検索・業務自動化を、小さな検証から実装まで支援
+- [業務システム開発](https://aiplun-studio.jp/services/business-systems): 業務の流れに合わせた業務システムの開発
+- [アプリ開発](https://aiplun-studio.jp/services/app-development): Web版で検証してからアプリ化する進め方にも対応
+- [ホームページ制作](https://aiplun-studio.jp/services/web-production): Webサイトは1〜4週間程度が目安
+- [セミナー運営の自動化](https://aiplun-studio.jp/services/seminar-automation): セミナー運営業務の自動化支援
+
+## 費用・進め方
+
+- [費用の目安](https://aiplun-studio.jp/plans): Web制作・アプリ・システム開発の費用目安と、相談から公開後までの進め方
+
+## 実績
+
+- [開発実績・制作例](https://aiplun-studio.jp/works/quest-ai): 自社アプリとLINE連携CRMの開発実績
+
+## ブログ
+
+- [AI活用ブログ](https://aiplun-studio.jp/blog): 企業のAI活用事例と、身近な業務で試せる活用方法を解説する記事を公開
+
+## よくある質問（トップページより）
+
+- アイデアだけでも相談できますか？ → はい。内容が固まっていなくても、目的や利用者を整理し、必要な機能と進め方を一緒に考えます
+- 小規模な制作・改修にも対応していますか？ → はい。LP制作、既存サイトの改善、小さな業務ツール、機能追加などに対応します
+- 開発期間はどのくらいですか？ → Webサイトは1〜4週間程度が目安です。アプリ・業務システムはヒアリング後にスケジュールを提示します
+- 相談したら契約しなければなりませんか？ → いいえ。初回相談は無料です。提案と見積もりを確認したうえで判断できます
+
+## 問い合わせ
+
+- 相談フォーム: https://aiplun-studio.jp/#contact
+- メール: royryu221317@gmail.com
+- 対応エリア: 京都・大阪を中心に、全国オンライン対応
