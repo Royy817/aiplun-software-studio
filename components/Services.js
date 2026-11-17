@@ -13,6 +13,7 @@ const services = [
     description: '紙・Excel・チャットに分かれた情報を一元管理。現場の流れに合わせたシステムで、転記や確認にかかる手間を減らします。',
     examples: ['顧客・案件・予約管理', '在庫管理・社内ポータル', '既存ツールとの連携'],
     scope: '業務整理 → 設計 → 開発 → 導入支援',
+    proof: { label: '自社開発の実績：クエストAI（LINE連携CRM）', href: '#quest-ai' },
   },
   {
     name: 'Webサイト制作', english: 'WEB DESIGN & DEVELOPMENT', slug: 'web-production', tone: 'web',
@@ -20,6 +21,7 @@ const services = [
     description: '会社やサービスの強みを、伝わる言葉とデザインへ。スマホでの見やすさ、検索からの入口、相談までの導線を整えます。',
     examples: ['コーポレートサイト', 'サービスサイト・LP', 'SEOの整備・保守・改善'],
     scope: '構成 → デザイン → 実装 → 公開',
+    proof: { label: '制作サンプル：SUIREN・KOMOREBI', href: '#web-projects' },
   },
   {
     name: 'アプリ・MVP開発', english: 'APP & MVP DEVELOPMENT', slug: 'app-development', tone: 'app',
@@ -27,6 +29,7 @@ const services = [
     description: '新規サービスの小さな検証から、iOS・Androidアプリの公開まで。まず必要な機能を絞り、利用者の声をもとに改善を重ねます。',
     examples: ['新規サービス・MVP', '予約・マッチングアプリ', '既存アプリの機能改善'],
     scope: '企画 → UI・UX設計 → 開発 → 公開',
+    proof: { label: '自社開発の実績：アイプラ（公開済みアプリ）', href: '#aiplun-app' },
   },
 ];
 
@@ -41,6 +44,7 @@ export default function Services() {
         <p className="capability-headline">{service.headline[0]}<br/>{service.headline[1]}</p>
         <p className="capability-description">{service.description}</p>
         <div className="capability-examples"><p>できること</p><ul>{service.examples.map(example => <li key={example}>{example}</li>)}</ul></div>
+        {service.proof && <a className="capability-proof" href={service.proof.href}>{service.proof.label}<span aria-hidden="true">↓</span></a>}
         <div className="capability-bottom"><p>{service.scope}</p><a href={`/services/${service.slug}`} aria-label={`${service.name}の詳細を見る`}>詳しく見る<span aria-hidden="true">↗</span></a></div>
       </article>)}
     </div>

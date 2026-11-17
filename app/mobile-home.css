@@ -7,15 +7,13 @@
 .mobile-fold-toggle,.mobile-action-bar{display:none}
 
 @media(max-width:800px){
- /* ---------- Order: follows R3 (hero → challenges → services → works → process → budget → team → FAQ → blog → contact) ---------- */
+ /* ---------- Order: same as the DOM order (R3) ---------- */
  .home-page{display:flex;flex-direction:column}
  .home-page>.opening-hero{order:0}
- .home-page>.decision-overview{order:1}
  .home-page>#your-challenges{order:2}
  .home-page>#services{order:3}
  .home-page>#works{order:4}
  .home-page>#flow{order:5}
- .home-page>.studio-promises{order:6}
  .home-page>#strengths{order:7}
  .home-page>#pricing{order:8}
  .home-page>.home-more{order:9}
@@ -56,12 +54,6 @@
  .home-page .opening-film-controls{padding-bottom:14px}
 
  /* ---------- 2. Jump links (the "まず確認" summary becomes a compact menu) ---------- */
- .home-page>.decision-overview{padding-block:16px 4px}
- .home-page .decision-heading{display:none}
- .home-page .decision-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;margin:0}
- .home-page .decision-grid>a{min-height:48px;padding:10px 6px!important;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:8px}
- .home-page .decision-grid>a>:not(.decision-label){display:none}
- .home-page .decision-grid .decision-label{margin:0;font-size:13px}
 
  /* ---------- 3. Challenges ---------- */
  .home-page .audience-grid article{padding:18px}
@@ -118,7 +110,6 @@
  .home-page .mobile-fold-toggle{
   display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:48px;margin-top:14px;padding:12px 16px;
   border:1px solid currentColor;border-radius:8px;background:transparent;color:inherit;font:inherit;font-size:15px;font-weight:600;cursor:pointer;opacity:.9}
- .home-page .studio-promises .section-heading{margin-bottom:0}
  .home-page .approach-layout{gap:0}
 
  /* ---------- Budget ---------- */
