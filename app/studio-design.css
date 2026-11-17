@@ -137,3 +137,18 @@ html{scroll-padding-top:calc(var(--studio-header-height,90px) + 16px)}
 .capability-proof{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;font-size:13px;font-weight:600;color:var(--blue)}.capability-proof:hover{border-color:var(--blue)}
 .budget-list p.budget-meta{margin-top:6px;font-size:13px;line-height:1.7}.budget-meta b{display:inline-block;min-width:3em;margin-right:8px;color:var(--ink,#16213a);font-weight:700}
 .member-photo{object-fit:cover;padding:0}
+/* R12: three pillars in #strengths (layout idea: numbered pillars with an English label). */
+.pillars-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,26em);gap:32px;align-items:end;margin-bottom:36px}.pillars-heading h2{margin:0}.pillars-heading p{margin:0;color:var(--muted);line-height:1.9}
+.pillar-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.pillar{display:flex;flex-direction:column;padding:30px 28px;border:1px solid #dce3ed;border-radius:16px;background:#fff}
+#strengths .pillar-label{display:flex;align-items:baseline;gap:12px;margin:0 0 18px;color:var(--blue);font-size:13px;font-weight:700;letter-spacing:.14em}#strengths .pillar-label span{font-size:34px;line-height:1;letter-spacing:-.02em}
+.pillar h3{margin:0 0 14px;font-size:21px;line-height:1.55}.pillar>p,.pillar .mobile-fold-body>p{margin:0;color:var(--muted);line-height:1.9;font-size:15px}
+.pillar-details{margin:18px 0 0;padding:16px 0 0 1.1em;border-top:1px solid #e6ebf2;color:var(--muted);font-size:14px;line-height:1.85}.pillar-details li+li{margin-top:8px}
+/* R11: three contact entry points. */
+.contact-routes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:28px 0 8px;padding:0;list-style:none}
+.contact-routes a{position:relative;display:flex;flex-direction:column;gap:8px;height:100%;padding:22px 48px 22px 22px;border:1px solid #ffffff4d;border-radius:14px;background:#ffffff14;color:#fff;text-decoration:none;transition:background-color .2s,border-color .2s}
+.contact-routes a:hover,.contact-routes a:focus-visible{background:#ffffff26;border-color:#ffffffa6}
+.contact-routes strong{font-size:17px}.contact-routes span{color:#e0e8ff;font-size:13px;line-height:1.7}.contact-routes .contact-route-arrow{position:absolute;right:20px;top:22px;color:#fff;font-size:16px}
+@media(max-width:1000px){.pillar-grid{grid-template-columns:1fr}.pillars-heading{grid-template-columns:1fr;gap:14px}}
+@media(max-width:800px){.pillars-heading{margin-bottom:22px}.pillar{padding:22px 20px}#strengths .pillar-label{margin-bottom:10px}#strengths .pillar-label span{font-size:26px}.pillar h3{font-size:18px;margin-bottom:8px}.pillar .mobile-fold-body>p{font-size:14px;line-height:1.8;margin-top:10px}.pillar-grid{gap:12px}
+ .contact-routes{grid-template-columns:1fr;gap:8px;margin:18px 0 6px}.contact-routes a{padding:14px 40px 14px 16px;gap:4px}.contact-routes strong{font-size:15px}.contact-routes span{font-size:12px;line-height:1.6}.contact-routes .contact-route-arrow{top:14px;right:16px}}

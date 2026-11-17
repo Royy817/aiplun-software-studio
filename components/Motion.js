@@ -3,7 +3,7 @@ import {useEffect} from 'react';
 import {usePathname} from 'next/navigation';
 import {initFlowProgress} from './flowProgress';
 
-const revealSelector = '[data-reveal], .studio-introduction, .team-member, .blog-card, .consult-panel, .quest-showcase, .quest-case-hero, .studio-photo, .work-feature, .crm-case, .website-example, .approach-intro, .approach-list article, .process-grid li, .budget-list>a, .faq-list details, .detail-page .reveal, .ai-industry-tabs button, .ai-industry-panel, .ai-calculator, .ai-diagnosis, .ai-philosophy-grid>div, .ai-service-paths a, .examples-track>a, .team-footer, .capability-consult, .contact form';
+const revealSelector = '[data-reveal], .studio-introduction, .team-member, .blog-card, .consult-panel, .quest-showcase, .quest-case-hero, .studio-photo, .work-feature, .crm-case, .website-example, .approach-intro, .approach-list article, .pillar-grid>article, .process-grid li, .budget-list>a, .faq-list details, .detail-page .reveal, .ai-industry-tabs button, .ai-industry-panel, .ai-calculator, .ai-diagnosis, .ai-philosophy-grid>div, .ai-service-paths a, .examples-track>a, .team-footer, .capability-consult, .contact form';
 const headingSelector = '.section-heading, .ai-section-heading, .team-heading, .blog-home-heading, .contact-grid';
 // 句読点や閉じ括弧は前の文字と同じ塊にして、行頭に来ないようにする
 const trailingMarks = /^[、。，．,.・ー」』）)！？!?〜]$/;
