@@ -13,4 +13,17 @@
 .home-page .fold-faq[data-open="false"]>.mobile-fold-body{display:none}
 .home-page .fold-faq[data-open="true"]>.mobile-fold-body{display:block}
 .home-page .fold-faq>.mobile-fold-toggle{display:flex;width:100%;justify-content:space-between;align-items:center;margin-top:16px;padding:14px 0;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--blue);font-weight:700}
-@media(max-width:800px){.work-choice-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.work-choice-grid button{min-height:72px;padding:14px;font-size:14px}.service-entry-grid{grid-template-columns:1fr}.service-entry-grid a{padding:22px}.flow-within-pillars{margin-top:32px;padding:26px 18px}.flow-within-pillars .section-heading{display:block}}
+@media(max-width:800px){.work-choice-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.work-choice-grid button{min-height:56px;padding:10px 14px;font-size:14px;line-height:1.4;word-break:keep-all;overflow-wrap:anywhere}.service-entry-grid{grid-template-columns:1fr}.service-entry-grid a{padding:22px}.flow-within-pillars{margin-top:32px;padding:26px 18px}.flow-within-pillars .section-heading{display:block}}
+/* Phone height: keep the two entry cards and the merged flow short (R14/R16, mobile <= 10,500px). */
+@media(max-width:800px){
+ .home-page .service-entry-grid{gap:8px;margin-top:10px}
+ .home-page .service-entry-grid a{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 12px;padding:14px 16px}
+ .home-page .service-entry-grid h3{font-size:16px;margin:0;word-break:keep-all;overflow-wrap:anywhere}
+ .home-page .service-entry-grid p{display:none}
+ .home-page .service-entry-grid strong{font-size:13px;white-space:nowrap}
+ .home-page .flow-within-pillars{margin-top:12px;padding:16px}
+ .home-page .flow-within-pillars .section-heading h2{font-size:20px;margin:0}
+ .home-page .flow-within-pillars .section-heading p{display:none}
+ .home-page .fold-flow>.mobile-fold-toggle{margin-top:12px}
+}
+ @media(max-width:800px){.home-page #your-challenges h2{word-break:keep-all;overflow-wrap:anywhere}}
