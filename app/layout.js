@@ -8,6 +8,7 @@ import './brand-film.css';
 import './studio-design.css';
 import './service-assembly.css';
 import './works-showcase.css';
+import './mobile-home.css';
 import Header from '../components/Header';
 import Motion from '../components/Motion';
 import {organization} from '../lib/structured-data';
