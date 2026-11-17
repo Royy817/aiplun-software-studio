@@ -1,0 +1,182 @@
+/* Phone layout for the home page (same URL, responsive).
+   Everything that changes the layout is inside @media(max-width:800px) and scoped to .home-page,
+   so wide screens keep the current design. Content stays in the DOM (folded or swiped, not removed). */
+
+/* Wide screens: the fold wrapper is invisible to layout and the phone-only controls are hidden. */
+.mobile-fold,.mobile-fold-body{display:contents}
+.mobile-fold-toggle,.mobile-action-bar{display:none}
+
+@media(max-width:800px){
+ /* ---------- Order: follows R3 (hero → challenges → services → works → process → budget → team → FAQ → blog → contact) ---------- */
+ .home-page{display:flex;flex-direction:column}
+ .home-page>.opening-hero{order:0}
+ .home-page>.decision-overview{order:1}
+ .home-page>#your-challenges{order:2}
+ .home-page>#services{order:3}
+ .home-page>#works{order:4}
+ .home-page>#flow{order:5}
+ .home-page>.studio-promises{order:6}
+ .home-page>#strengths{order:7}
+ .home-page>#pricing{order:8}
+ .home-page>.home-more{order:9}
+ .home-page>#team{order:10}
+ .home-page>#faq{order:11}
+ .home-page>#blog{order:12}
+ .home-page>#consultation{order:13}
+ .home-page>#contact{order:14}
+
+ /* ---------- Shared rhythm ---------- */
+ .home-page .section,.home-page .works-section,.home-page .process-section,.home-page .consultation-section,.home-page .team-section{padding-block:40px}
+ .home-page .section-heading{margin-bottom:22px;gap:10px}
+ .home-page .section-heading h2,.home-page .team-heading h2,.home-page .faq-section h2,.home-page .blog-home h2,.home-page .budget h2,.home-page .approach-intro h2,.home-page .contact h2{font-size:clamp(23px,6.4vw,27px);line-height:1.45}
+ .home-page .section-heading p br{display:none}
+ .home-page .section-top{padding-bottom:8px;margin-bottom:14px}
+ .home-page .section-top .eyebrow{margin:0}
+ .home-page .section-note{display:none}
+
+ /* Horizontal swipe rows (3–4 cards, next card peeks so the row reads as swipeable). */
+ .home-page .audience-grid,.home-page .capability-grid,.home-page .work-gallery,.home-page .blog-cards,.home-page .consultation-outcomes{
+  display:flex!important;grid-template-columns:none!important;gap:12px!important;overflow-x:auto;scroll-snap-type:x mandatory;
+  margin-inline:-20px;padding:2px 20px 14px;scroll-padding-inline:20px;overscroll-behavior-x:contain;scrollbar-width:thin}
+ .home-page .audience-grid>*,.home-page .capability-grid>*,.home-page .work-gallery>*,.home-page .blog-cards>*,.home-page .consultation-outcomes>*{
+  flex:0 0 84%;min-width:0;scroll-snap-align:start;margin:0!important}
+
+ /* ---------- 1. Hero: fit the message and buttons in the first screen ---------- */
+ .home-page .opening-topline,.home-page .opening-bottom{display:none}
+ .home-page .opening-grid{padding-block:28px 26px;gap:18px;min-height:0}
+ .home-page .opening-location{margin-bottom:12px}
+ .home-page .opening-description{margin-top:16px}
+ .home-page .opening-actions{display:grid;gap:10px;margin-top:20px}
+ .home-page .opening-actions .button{min-height:52px;justify-content:center;width:100%}
+ .home-page .opening-actions .opening-secondary{min-height:48px;display:flex;align-items:center;justify-content:center}
+ /* The cube card repeats the four services shown below; keep only the motion controls on phones. */
+ .home-page .opening-visual{padding:0!important;border:0!important;background:none!important;box-shadow:none!important;width:100%!important;min-height:0}
+ .home-page .opening-visual>.opening-scene,.home-page .opening-visual-caption{display:none}
+ .home-page .opening-motion-controls{position:static;justify-content:flex-start;margin:0}
+ .home-page .opening-film-controls{padding-bottom:14px}
+
+ /* ---------- 2. Jump links (the "まず確認" summary becomes a compact menu) ---------- */
+ .home-page>.decision-overview{padding-block:16px 4px}
+ .home-page .decision-heading{display:none}
+ .home-page .decision-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;margin:0}
+ .home-page .decision-grid>a{min-height:48px;padding:10px 6px!important;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:8px}
+ .home-page .decision-grid>a>:not(.decision-label){display:none}
+ .home-page .decision-grid .decision-label{margin:0;font-size:13px}
+
+ /* ---------- 3. Challenges ---------- */
+ .home-page .audience-grid article{padding:18px}
+ .home-page .audience-grid h3{margin-block:6px}
+ .home-page .audience-grid article>p:not(.audience-role){font-size:14px;line-height:1.75;margin-block:6px}
+ .home-page .audience-direction{margin-block:10px;padding:12px 14px}
+ .home-page .audience-direction p{font-size:13px;line-height:1.7;margin:2px 0 0}
+ .home-page .audience-grid article>a{min-height:44px;display:flex;align-items:center}
+ .home-page .audience-note{margin-top:6px}
+
+ /* ---------- 4. Services ---------- */
+ .home-page .capability-card{padding:20px}
+ .home-page .capability-top{margin-bottom:12px}
+ .home-page .capability-english{display:none}
+ .home-page .capability-card h3{margin-top:0}
+ .home-page .capability-headline{margin-block:8px;font-size:15px;line-height:1.6}
+ .home-page .capability-description{font-size:14px;line-height:1.8;margin-block:8px}
+ .home-page .capability-examples{margin-top:12px;padding:12px 14px}
+ .home-page .capability-examples li{line-height:1.7}
+ .home-page .capability-bottom{margin-top:12px;padding-top:10px}
+ .home-page .capability-consult{margin-top:10px;padding:16px 0 0;gap:12px}
+ .home-page .capability-consult span{display:block;font-size:13px;line-height:1.7}
+ /* The fixed bar already offers this consultation button on phones. */
+ .home-page .capability-consult .button{display:none}
+ .home-page .capability-top{margin-bottom:8px}
+ .home-page .capability-icon{width:40px;height:40px}
+ .home-page .capability-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px}
+ .home-page .capability-bottom p{margin:0;font-size:11px;line-height:1.6}
+ .home-page .capability-bottom a{min-height:48px;display:flex;align-items:center;gap:8px;flex-shrink:0}
+
+ /* ---------- 5. Works ---------- */
+ .home-page .work-group-nav{display:none}
+ .home-page .work-group{padding-top:20px;margin-top:0!important}
+ .home-page .work-group-heading{margin-bottom:14px}
+ .home-page .project-media{max-height:170px}
+ .home-page .project-media img{max-height:170px;width:100%;object-fit:cover;object-position:top}
+ .home-page .project-tags{display:none}
+ .home-page .project-copy{padding:16px 18px 18px}
+ .home-page .project-description{font-size:14px;line-height:1.75;margin-block:8px}
+ .home-page .project-actions{margin-top:10px;display:block}
+ .home-page .project-actions>.project-primary{min-height:48px;width:100%;display:flex;align-items:center;justify-content:center;gap:8px}
+ /* "似たものを相談する" goes to the form, which the fixed bar already offers on phones. */
+ .home-page .project-actions>.project-consult{display:none}
+ .home-page .works-heading{margin-bottom:6px}
+ .home-page .work-group-heading .eyebrow{display:none}
+ .home-page .fold-examples>.mobile-fold-toggle{margin-top:22px}
+ .home-page .project-note{margin-top:8px}
+ .home-page .work-group-heading>p{font-size:13px;line-height:1.7}
+ .home-page .examples{margin-top:28px}
+
+ /* ---------- Folds (promises, support, representative) ---------- */
+ .home-page .mobile-fold{display:block}
+ .home-page .mobile-fold[data-open="false"]>.mobile-fold-body{display:none}
+ .home-page .mobile-fold-toggle{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:48px;margin-top:14px;padding:12px 16px;
+  border:1px solid currentColor;border-radius:8px;background:transparent;color:inherit;font:inherit;font-size:15px;font-weight:600;cursor:pointer;opacity:.9}
+ .home-page .studio-promises .section-heading{margin-bottom:0}
+ .home-page .approach-layout{gap:0}
+
+ /* ---------- Budget ---------- */
+ .home-page .budget{gap:16px}
+ .home-page .budget>div:first-child p{margin-block:10px}
+ .home-page .budget-list>a{padding-block:14px;min-height:48px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:4px 10px}
+ .home-page .budget-list>a{margin-bottom:8px!important}
+ .home-page .budget-note{margin-top:10px!important}
+ .home-page .budget-list>a .quote{font-size:12px;white-space:nowrap;margin:3px 0 0}
+ .home-page .budget-list>a h3{font-size:17px;margin:0}
+ .home-page .budget-list>a p{font-size:13px;line-height:1.6;margin:2px 0 0}
+ .home-page .light-offer{margin-top:14px;padding:18px}
+ .home-page .light-offer h3{margin:6px 0}
+
+ /* ---------- Team / FAQ / blog / consultation ---------- */
+ .home-page .team-heading{margin-bottom:20px}
+ .home-page .team-footer{margin-top:14px;padding-top:14px}
+ .home-page .team-footer p{margin:0 0 4px}
+ .home-page>.home-more{padding-block:8px 24px;gap:10px}
+ .home-page .home-details summary{padding:14px 16px;min-height:48px}
+ .home-page .home-details summary strong{font-size:16px;line-height:1.5}
+ .home-page .home-details summary span span{font-size:12px;line-height:1.6}
+ .home-page .faq-section{gap:16px}
+ .home-page .faq-list details{padding-block:12px}
+ .home-page .faq-list summary{min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:15px;line-height:1.6}
+ .home-page .fold-faq>.mobile-fold-toggle{margin-top:16px}
+ .home-page .faq-list details p{font-size:14px;line-height:1.8}
+ .home-page .blog-home-lead{margin-bottom:16px;font-size:14px}
+ .home-page .blog-card p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+ .home-page .consultation-section .section-heading{margin-bottom:16px}
+ .home-page .consultation-outcomes>li{padding:18px}
+ .home-page .consultation-next{margin-top:12px;padding:18px;gap:14px}
+ .home-page .consultation-next small{display:block;font-size:12px;line-height:1.7}
+ .home-page .consultation-action .button{width:100%;justify-content:center;min-height:52px}
+ .home-page .contact{padding-block:44px}
+ .home-page .consult-panel{padding:22px 18px}
+ .home-page .consult-intro h3{margin-top:8px}
+ .home-page .contact-grid{gap:10px;margin-block:14px 16px}
+ .home-page .contact-next-steps{margin-block:12px}
+ .home-page .consult-panel{margin-top:16px}
+ .home-page .contact-foot{padding-top:16px}
+ .home-page .blog-card{padding:20px}
+ .home-page .blog-card h3{font-size:16px;line-height:1.6;margin-block:10px 6px}
+ .home-page .consult-fields{gap:14px}
+
+ /* ---------- Fixed consultation bar (bottom of the screen = easiest to reach with a thumb) ---------- */
+ .mobile-action-bar{
+  display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;
+  padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid #d9dfe8;box-shadow:0 -6px 18px #0b18321a;
+  transform:translateY(110%);transition:transform .25s ease}
+ .mobile-action-bar.is-visible{transform:none}
+ .mobile-action-bar a{display:flex;align-items:center;justify-content:center;gap:6px;min-height:48px;border-radius:8px;font-size:15px;font-weight:700;text-decoration:none;text-align:center;line-height:1.3}
+ .mobile-action-primary{background:#2457ff;color:#fff}
+ .mobile-action-secondary{border:1px solid #b9c3d3;color:#0b1832;background:#fff}
+ .mobile-action-bar a:focus-visible{outline:3px solid #0b1832;outline-offset:2px}
+ /* Keep the footer clear of the bar. */
+ .home-page~.footer{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+}
+
+@media(max-width:800px) and (prefers-reduced-motion:reduce){.mobile-action-bar{transition:none}}
+html.studio-motion-paused .mobile-action-bar{transition:none}
