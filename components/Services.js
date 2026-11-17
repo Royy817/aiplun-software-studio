@@ -6,6 +6,7 @@ const services = [
     description: '問い合わせ対応や資料検索、毎日の定型作業を効率化。現在の業務を整理し、AIに任せる仕事と人が担う仕事を見極めます。',
     examples: ['問い合わせ・社内FAQ', '資料検索・文章作成の補助', 'LINE・メールの自動送信'],
     scope: '業務分析 → 検証 → 実装 → 運用改善',
+    proof: { label: '業種別のAI導入イメージを見る', href: '/services/ai-automation#ai-impact' },
   },
   {
     name: '業務システム開発', english: 'BUSINESS SYSTEMS', slug: 'business-systems', tone: 'system',
