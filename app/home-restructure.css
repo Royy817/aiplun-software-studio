@@ -27,3 +27,14 @@
  .home-page .fold-flow>.mobile-fold-toggle{margin-top:12px}
 }
  @media(max-width:800px){.home-page #your-challenges h2{word-break:keep-all;overflow-wrap:anywhere}}
+.phone-guide,.phone-services,.phone-budget{display:none}
+@media(max-width:800px){
+ .phone-guide,.phone-services,.phone-budget{display:grid;gap:0}
+ .phone-guide{margin-top:16px;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+ .phone-guide a,.phone-services a,.phone-budget a{display:flex;align-items:center;min-height:44px;color:var(--ink);text-decoration:none}
+ .phone-guide a{justify-content:center;text-align:center;font-size:13px;font-weight:700;background:#eef3ff;border-radius:6px}
+ .phone-services{grid-template-columns:1fr 1fr;gap:0 12px}
+ .phone-services a,.phone-budget a{padding:12px 0;border-top:1px solid var(--line);font-weight:700}
+ .phone-budget a{align-items:flex-start;flex-direction:column;gap:6px}.phone-budget span{font-size:14px;color:var(--muted);font-weight:400}
+ .home-page .desktop-services,.home-page #pricing .budget-list{display:none}
+}

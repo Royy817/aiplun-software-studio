@@ -2,12 +2,19 @@
 import {useEffect,useRef,useState} from 'react';
 import {budgets,timings,validateContact} from '../lib/contact.mjs';
 import {withSelectedWork} from '../lib/work-choice.mjs';
+import {articleIntent,intents} from '../lib/consultation-intents.mjs';
 export default function ContactBrief(){
  const [ready,setReady]=useState(null),[pending,setPending]=useState(false),[sent,setSent]=useState(false),[errors,setErrors]=useState({}),[status,setStatus]=useState('');
  const [topic,setTopic]=useState('未定・その他');
  const message=useRef(null);
  useEffect(()=>{const selectWork=event=>{const {work,topic:nextTopic}=event.detail||{};if(!work||!nextTopic)return;setTopic(nextTopic);if(message.current)message.current.value=withSelectedWork(message.current.value,work)};window.addEventListener('aiplun:work-consultation',selectWork);return()=>window.removeEventListener('aiplun:work-consultation',selectWork)},[]);
- useEffect(()=>{const selectAI=()=>setTopic('AI業務効率化・自動化について'),selectEstimate=()=>setTopic('見積もり依頼');const requested=new URLSearchParams(window.location.search).get('consultation');if(requested==='ai')selectAI();if(requested==='estimate')selectEstimate();window.addEventListener('aiplun:ai-consultation',selectAI);window.addEventListener('aiplun:estimate-request',selectEstimate);return()=>{window.removeEventListener('aiplun:ai-consultation',selectAI);window.removeEventListener('aiplun:estimate-request',selectEstimate)}},[]);
+ useEffect(()=>{const selectAI=()=>setTopic('AI業務効率化・自動化について'),selectEstimate=()=>setTopic('見積もり依頼');const params=new URLSearchParams(window.location.search);
+ const requested=params.get('consultation'), article=params.get('article');
+ const key=article ? articleIntent(article) : params.get('scope');
+ const choice=Object.hasOwn(intents,key) ? intents[key] : null;
+ if(choice){setTopic(choice[1]);if(message.current)message.current.value=withSelectedWork(message.current.value,choice[0])}
+ if(article && /^[a-z0-9-]{1,120}$/.test(article) && message.current){const reference='参考記事: https://aiplun-studio.jp/blog/'+article;if(!message.current.value.includes(reference))message.current.value=[message.current.value,reference].filter(Boolean).join('\n')}
+ if(requested==='ai')selectAI();if(requested==='estimate')selectEstimate();window.addEventListener('aiplun:ai-consultation',selectAI);window.addEventListener('aiplun:estimate-request',selectEstimate);return()=>{window.removeEventListener('aiplun:ai-consultation',selectAI);window.removeEventListener('aiplun:estimate-request',selectEstimate)}},[]);
  const notice=useRef(null),requestId=useRef(null),sending=useRef(false);
  useEffect(()=>{const controller=new AbortController();fetch('/api/contact',{cache:'no-store',signal:controller.signal}).then(r=>r.ok?r.json():Promise.reject()).then(data=>setReady(data.ready===true)).catch(()=>{if(!controller.signal.aborted)setReady(false)});return()=>controller.abort()},[]);
  useEffect(()=>{
