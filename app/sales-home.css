@@ -7,3 +7,19 @@
 @media(prefers-reduced-motion:reduce){.sx-home *{animation:none!important;transition:none!important}.sx-task{transform:none!important}html{scroll-behavior:auto!important}}
 
 .consult-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:32px 0}.consult-benefits article{border-top:1px solid #ffffff55;padding:20px 0}.consult-benefits span{font-size:12px;opacity:.8}.consult-benefits h3{font-size:20px;margin:10px 0}.consult-benefits p{font-size:14px;line-height:1.9;max-width:32em}.sx-hero button:disabled{opacity:.5;cursor:default}.sx-hero :focus-visible{outline:3px solid #0b53e8;outline-offset:5px}@media(max-width:800px){.consult-benefits{grid-template-columns:1fr;gap:0;margin:20px 0}.consult-benefits article{padding:14px 0}.consult-benefits h3{font-size:17px;margin:4px 0}.consult-benefits p{font-size:13px}.sx-hero-grid .sx-hero-copy{padding-top:24px}.sx-hero-grid .sx-scene{height:280px}.sx-hero-grid .sx-task-2{bottom:34px}.sx-hero .sx-hero-bottom{margin-top:20px}}
+
+/* Keep the mobile introduction and consultation outcomes easy to scan. */
+@media(max-width:800px){
+ .sx-hero .sx-lead br{display:none}
+ .sx-hero .sx-lead{font-size:14px;line-height:1.9;margin-top:18px}
+ .sx-hero-grid .sx-hero-copy{padding-bottom:12px}
+ .sx-hero .sx-actions{gap:12px;margin-top:20px}
+ .sx-hero .sx-hero-bottom{margin-top:12px}
+ .sx-hero-bottom>span{display:none}
+ .sx-hero-bottom>div{display:flex;justify-content:space-between;width:100%}
+ .contact .consult-benefits article{display:grid;grid-template-columns:22px 1fr;gap:3px 10px;padding:12px 0}
+ .contact .consult-benefits article>span{grid-row:1/3;padding-top:4px}
+ .contact .consult-benefits h3{margin:0;font-size:16px}
+ .contact .consult-benefits p{margin:0;font-size:13px;line-height:1.7}
+ .contact .consult-benefits{margin:16px 0}
+}
