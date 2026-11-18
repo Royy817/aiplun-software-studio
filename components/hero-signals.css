@@ -19,3 +19,28 @@
 }
 @keyframes sx-route{0%{stroke-dashoffset:16;opacity:0}12%{opacity:1}88%{opacity:1}100%{stroke-dashoffset:-102;opacity:0}}
 @keyframes sx-gloss{from{transform:translateX(-70%)}to{transform:translateX(70%)}}
+
+/* The arrival lands on the same beat as the last packet. Only the artwork moves. */
+.sx-impact{display:none}
+@media(prefers-reduced-motion:no-preference){
+ .sx-hero{--impact-lift:-14px;--impact-scale:1.09}
+ .sx-impact{display:block;position:absolute;inset:0;pointer-events:none;overflow:clip}
+ .sx-impact i{position:absolute;left:50%;top:51%;width:min(90%,490px);aspect-ratio:2.5;
+  border:2px solid #4768ee;border-radius:50%;background:radial-gradient(ellipse,transparent 54%,#799eff42 85%,#99d6ff88);
+  transform:translate(-50%,-50%) rotate(-9deg) scale(.3);opacity:0}
+ .sx-impact i+i{width:min(76%,400px);border:1px solid #6394e8;background:none}
+ .sx-hero.is-assembled:not(.sx-paused) .sx-impact i{animation:sx-resonance 840ms cubic-bezier(.12,.7,.25,1) 990ms both}
+ .sx-hero.is-assembled:not(.sx-paused) .sx-impact i+i{animation-delay:1100ms}
+ .sx-hero.is-assembled:not(.sx-paused) .sx-core{animation:sx-arrival 830ms cubic-bezier(.22,.72,.22,1) 740ms}
+ @media(max-width:800px){.sx-hero{--impact-lift:-7px;--impact-scale:1.045}}
+}
+@keyframes sx-resonance{
+ 0%{opacity:0;transform:translate(-50%,-50%) rotate(-9deg) scale(.3)}
+ 18%{opacity:.85}
+ 100%{opacity:0;transform:translate(-50%,-50%) rotate(-9deg) scale(1.12)}
+}
+@keyframes sx-arrival{
+ 0%,100%{transform:translate(-50%,-50%) rotateX(12deg) rotateY(-16deg) rotateZ(-8deg)}
+ 28%{transform:translate(-50%,-50%) rotateX(20deg) rotateY(-21deg) rotateZ(-10deg) scale(.96)}
+ 57%{transform:translate(-50%,calc(-50% + var(--impact-lift))) rotateX(3deg) rotateY(-6deg) rotateZ(-4deg) scale(var(--impact-scale))}
+}
