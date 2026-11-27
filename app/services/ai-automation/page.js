@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { PartnerCalculator, PartnerDiagnosis, PartnerIndustries, PartnerNetwork } from '../../../components/ai-partner/Interactive';
 import PartnerContact from '../../../components/ai-partner/PartnerContact';
-import { plans } from '../../../lib/ai-partner.mjs';
+import { estimateImpact, plans } from '../../../lib/ai-partner.mjs';
 import { pageMetadata, siteUrl } from '../../../lib/seo';
 import './partner.css';
 
@@ -11,7 +11,7 @@ const seo = pageMetadata(route);
 const shareImage = siteUrl + '/media/ai-partner-og.png';
 export const metadata = {
   ...seo,
-  openGraph: { ...seo.openGraph, images: [{ url: shareImage, width: 1200, height: 630, alt: 'AIPLUN AI PARTNER by Aiplun Studio' }] },
+  openGraph: { ...seo.openGraph, images: [{ url: shareImage, width: 1200, height: 630, alt: 'AIPLUN AI PARTNER by AIPLUN' }] },
   twitter: { ...seo.twitter, images: [shareImage] },
 };
 
@@ -53,6 +53,52 @@ function Heading({ label, title, children }) {
 
 function ConsultLink({ children = '無料で相談する', plan, className = 'ap-button ap-gold' }) {
   return <a className={className} href="#contact-form" data-ap-plan={plan}>{children} <span aria-hidden="true">↗</span></a>;
+}
+
+const impactSignals = [
+  { area: '顧客対応', current: '返信が遅れ、他社が先に商談する。', proposed: 'よくある質問の返信案をAIが作り、担当者が確認してすばやく返す。' },
+  { area: '人手不足', current: '案件が増えても、転記や集計で手一杯になる。', proposed: '繰り返す入力を減らし、商談や顧客への提案に時間を回す。' },
+  { area: '事業の継続', current: '担当者が休むと、手順や資料の場所が分からず作業が止まる。', proposed: '手順と資料を共有し、権限内で参照できる仕組みを整える。' },
+];
+const monthlyWork = 100;
+const illustrativeImpact = estimateImpact({ people: 5, minutes: 30, days: 20, hourlyCost: 0 });
+const remainingWork = monthlyWork - illustrativeImpact.monthlyHours;
+
+function PartnerImpact() {
+  return <section className="ap-section ap-impact" id="why-ai" aria-labelledby="ap-impact-heading">
+    <div className="ap-wrap">
+      <div className="ap-impact-heading" data-reveal="pop">
+        <p className="ap-kicker">AI導入のメリット</p>
+        <h2 id="ap-impact-heading">いまのやり方で、<br/>来年もお客さまを待たせずに済みますか？</h2>
+        <p>返信の遅れや引き継ぎの難しさが重なると、商談機会やサービスを続ける力に響きます。負担の大きい業務から見直すと、人が対応すべき仕事に時間を戻せます。</p>
+      </div>
+      <div className="ap-impact-grid">
+        <div className="ap-impact-compare" data-reveal="pop">
+          {impactSignals.map(({ area, current, proposed }) => <article key={area}>
+            <h3>{area}</h3>
+            <dl>
+              <div><dt>手作業が残ると</dt><dd>{current}</dd></div>
+              <div><dt>AI・仕組み化を進めると</dt><dd>{proposed}</dd></div>
+            </dl>
+          </article>)}
+        </div>
+        <figure className="ap-impact-chart" data-reveal="pop">
+          <figcaption>転記・集計にかける時間の試算</figcaption>
+          <p className="ap-impact-number"><strong>月{illustrativeImpact.monthlyHours}時間</strong>を他の業務へ</p>
+          {[[ '現状の想定', monthlyWork ], [ '見直し後の想定', remainingWork ]].map(([label, hours]) => <div className="ap-impact-bar" key={label}>
+            <div><span>{label}</span><strong>月{hours}時間</strong></div>
+            <div className="ap-impact-track" aria-hidden="true"><span style={{width: `${hours / monthlyWork * 100}%`}}/></div>
+          </div>)}
+          <p>5人が月20日、1人1日30分ずつ短縮できた場合。効果は業務や使い方によって変わります。</p>
+          <a className="ap-text-link" href="#ai-simulator">自社の条件で試算する <span aria-hidden="true">↓</span></a>
+        </figure>
+      </div>
+      <div className="ap-impact-action">
+        <p>無料相談では、繰り返しが多く、効果を測りやすい業務を一緒に選びます。</p>
+        <div><a className="ap-text-link" href="#ai-impact">業界別の活用例を見る</a><ConsultLink/></div>
+      </div>
+    </div>
+  </section>;
 }
 
 function PartnerPhoto({ scene, alt, className }) {
@@ -105,7 +151,7 @@ export default function AIPartnerPage() {
         <div className="ap-hero-grid">
           <div className="ap-hero-copy" data-reveal="pop">
             <p className="ap-kicker">京都・大阪を中心とした中小企業向け</p>
-            <h1>あなたの会社に、<br/><em>AI専門部門</em>を。</h1>
+            <h1>あなたの会社に、<br/><em>AI専門部門</em>を</h1>
             <p className="ap-hero-lead">AIを使いたい。でも、何から始めればいいか分からない。</p>
             <p className="ap-hero-description">AIPLUNは、AIの導入から社員教育、業務改善、<wbr/>システム開発まで一貫して支援します。</p>
             <p className="ap-hero-price">AI導入支援、単発 <strong>2万円</strong> から <small>税別</small></p>
@@ -120,11 +166,13 @@ export default function AIPartnerPage() {
     <nav className="ap-jump" aria-label="AI導入支援ページ内の移動">
       <div className="ap-wrap">
         <a href="#pricing">サービス・料金</a>
-        <a href="#ai-impact">活用例</a>
+        <a href="#why-ai">導入メリット</a>
         <a href="#ai-diagnosis">AI導入診断</a>
-        <a className="ap-jump-contact" href="#contact-form">無料で相談する <span aria-hidden="true">↗</span></a>
+        <a className="ap-jump-contact" href="#contact-form">無料相談 <span aria-hidden="true">↗</span></a>
       </div>
     </nav>
+
+    <PartnerImpact/>
 
     <section className="ap-section ap-paper">
       <div className="ap-wrap ap-editorial">
@@ -232,7 +280,7 @@ export default function AIPartnerPage() {
 
     <section className="ap-section" id="development-work">
       <div className="ap-wrap">
-        <Heading label="開発実績・支援体制" title="業務に合わせて、開発まで。">Aiplun Studioが窓口となり、相談から設計・実装・運用まで対応します。</Heading>
+        <Heading label="開発実績・支援体制" title="業務に合わせて、開発まで。">AIPLUNが窓口となり、相談から設計・実装・運用まで対応します。</Heading>
         <article className="ap-case" data-reveal="pop">
           <div className="ap-case-image"><Image src="/quest-ai-dashboard.webp" alt="クエストAIの顧客・セミナー管理画面" width={1280} height={800} sizes="(max-width: 760px) 100vw, 60vw"/></div>
           <div><p className="ap-kicker">自社開発・LINE連携CRM</p><h3>クエストAI</h3><p>セミナー申込み、LINE案内、QR受付、アンケートをまとめた自社開発システムです。</p><a className="ap-text-link" href="/works/quest-ai">開発実績を見る ↗</a><a className="ap-text-link" href="/services/seminar-automation">セミナー運営の自動化を見る ↗</a></div>

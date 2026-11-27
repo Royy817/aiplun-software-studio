@@ -407,3 +407,35 @@
   .ap-pricing { grid-template-columns: 1fr; }
   .ap-pricing summary { min-height: 0; }
 }
+
+.ap-impact { background: #fffdfa; }
+.ap-impact-heading { max-width: 870px; margin-bottom: clamp(24px, 4vw, 44px); }
+.ap-impact-heading > p:last-child { max-width: 740px; margin-top: 15px; color: var(--ap-muted); }
+.ap-impact-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, .85fr); gap: 22px; align-items: start; }
+.ap-impact-compare { display: grid; gap: 10px; }
+.ap-impact-compare article { border: 1px solid var(--ap-line); border-radius: 5px; padding: 16px; }
+.ap-impact-compare dl { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0 0; }
+.ap-impact-compare dl > div { padding: 10px; background: #f5f3ee; border-radius: 3px; }
+.ap-impact-compare dl > div + div { background: #f4e8cd; }
+.ap-impact-compare dt { font-size: 12px; font-weight: 700; color: #695025; }
+.ap-impact-compare dd { margin: 4px 0 0; font-size: 14px; color: #302d24; line-height: 1.6; }
+.ap-impact-chart { border-radius: 5px; background: var(--ap-black); color: var(--ap-white); padding: clamp(22px, 3vw, 38px); }
+.ap-impact-chart figcaption { font-size: 15px; font-weight: 700; }
+.ap-impact-number { margin: 10px 0 20px; }
+.ap-impact-number strong { color: var(--ap-gold); font-size: clamp(32px, 4vw, 55px); line-height: 1.2; letter-spacing: -.04em; }
+.ap-impact-bar { margin-bottom: 16px; }
+.ap-impact-bar > div:first-child { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 10px; font-size: 13px; }
+.ap-impact-track { margin-top: 5px; background: #403b2f; border-radius: 4px; overflow: hidden; }
+.ap-impact-track > span { display: block; height: 9px; background: #aaa397; }
+.ap-impact-bar + .ap-impact-bar .ap-impact-track > span { background: var(--ap-gold); }
+.ap-impact-chart > p:not(.ap-impact-number) { color: #d1cabe; font-size: 13px; }
+.ap-impact-chart .ap-text-link { margin-top: 10px; color: var(--ap-gold); }
+.ap-impact-action { display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; padding-top: 20px; border-top: 1px solid var(--ap-line); margin-top: 20px; }
+@media (max-width: 790px) { .ap-impact-grid { grid-template-columns: 1fr; } }
+@media (max-width: 450px) {
+  .ap-impact-compare article { padding: 12px; }
+  .ap-impact-compare dl > div { padding: 8px; }
+  .ap-impact-compare dd { font-size: 13px; }
+}
+
+.ap-impact-action > div { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 15px; }

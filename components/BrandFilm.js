@@ -17,11 +17,11 @@ export default function BrandFilm() {
  return <section className="brand-film" id="brand-film" aria-labelledby="brand-film-title">
   <div className="wrap">
    <div className="brand-film-heading" data-reveal>
-    <div><p className="eyebrow">AIPLUN STUDIO / BRAND FILM</p><h2 id="brand-film-title">仕事に、余白を。</h2></div>
+    <div><p className="eyebrow">AIPLUN / BRAND FILM</p><h2 id="brand-film-title">仕事に、余白を。</h2></div>
     <p>繰り返す仕事を、仕組みに変える。<br/>人にしかできない仕事へ。</p>
    </div>
    <div className="brand-film-player" data-reveal>
-    <video ref={video} controls={started || !enhanced} playsInline preload="none" poster="/media/aiplun-brand-film-poster.webp" aria-label="Aiplun Studio ブランドムービー、30秒" onPlay={() => {setStarted(true);setError('');}} onError={() => {setLoading(false);setError('動画を読み込めませんでした。時間をおいて再生してください。');}}>
+    <video ref={video} controls={started || !enhanced} playsInline preload="none" poster="/media/aiplun-brand-film-poster.webp" aria-label="AIPLUN ブランドムービー、30秒" onPlay={() => {setStarted(true);setError('');}} onError={() => {setLoading(false);setError('動画を読み込めませんでした。時間をおいて再生してください。');}}>
      <source src="/media/aiplun-brand-film-30s.mp4" type="video/mp4"/>
      お使いのブラウザでは動画を再生できません。<a href="/media/aiplun-brand-film-30s.mp4">動画を開く</a>
     </video>
