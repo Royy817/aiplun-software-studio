@@ -443,3 +443,10 @@
 .ap-maintenance { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; background: #fffdfa; scroll-margin-top: 55px; }
 .ap-maintenance > div { flex: 1 1 400px; }
 .ap-maintenance p { margin-top: 6px; color: var(--ap-muted); font-size: 14px; }
+
+.ap-two-line-title { container-type: inline-size; }
+.ap-two-line-title > span {
+  display: block;
+  font-size: min(1em, var(--ap-title-fit));
+  white-space: nowrap;
+}
