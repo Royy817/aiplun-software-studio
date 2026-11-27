@@ -55,6 +55,34 @@ function ConsultLink({ children = '無料で相談する', plan, className = 'ap
   return <a className={className} href="#contact-form" data-ap-plan={plan}>{children} <span aria-hidden="true">↗</span></a>;
 }
 
+function PartnerPhoto({ scene, alt, className }) {
+  return <figure className={`ap-photo ${className ?? ''}`} data-reveal="pop">
+    <Image src={`/media/ai-partner-${scene}.webp`} alt={alt} fill sizes="(max-width: 760px) 92vw, 520px" />
+    <figcaption>支援イメージ（AI生成）</figcaption>
+  </figure>;
+}
+
+function MonthlyFeeChart() {
+  const monthlyPlans = plans.filter(plan => plan.monthlyFees);
+  const scale = Math.max(...monthlyPlans.flatMap(plan => plan.monthlyFees));
+  return <figure className="ap-fee-chart">
+    <figcaption><h3>月額プランの費用比較</h3><p>月額・税別。色の分かれ目はPROの下限です。</p></figcaption>
+    <div className="ap-fee-rows">
+      {monthlyPlans.map(plan => {
+        const [min, max = min] = plan.monthlyFees;
+        return <div className="ap-fee-row" key={plan.id}>
+          <span>{plan.name}</span><strong>{plan.price}</strong>
+          <div className="ap-fee-track" aria-hidden="true">
+            <span style={{width: (min / scale * 100) + '%'}}/>
+            {max > min && <span className="ap-fee-range" style={{width: ((max - min) / scale * 100) + '%'}}/>}
+          </div>
+        </div>;
+      })}
+      <div className="ap-fee-axis" aria-hidden="true"><span>0円</span><span>{scale / 20000}万円</span><span>{scale / 10000}万円</span></div>
+    </div>
+  </figure>;
+}
+
 export default function AIPartnerPage() {
   const schema = {
     '@context': 'https://schema.org',
@@ -100,7 +128,10 @@ export default function AIPartnerPage() {
 
     <section className="ap-section ap-paper">
       <div className="ap-wrap ap-editorial">
-        <Heading label="中小企業のAI導入" title={<>AIを使いたい。<br/>現場では、何から？</>}/>
+        <div>
+          <Heading label="中小企業のAI導入" title={<>AIを使いたい。<br/>現場では、何から？</>}/>
+          <PartnerPhoto scene="consultation" alt="資料を見ながら業務について相談する二人" className="ap-photo-consultation"/>
+        </div>
         <ol className="ap-problems">{problems.map(([title, copy], index) => <li key={title} data-reveal="pop"><span aria-hidden="true">0{index + 1}</span><div><h3>{title}</h3><p>{copy}</p></div></li>)}</ol>
       </div>
     </section>
@@ -118,7 +149,10 @@ export default function AIPartnerPage() {
 
     <section className="ap-section ap-dark ap-flow" id="workflow">
       <div className="ap-wrap">
-        <Heading label="業務改善イメージ" title={<>請求書の手入力を、<br/>確認中心の仕事へ。</>}>入力候補はAIが作り、登録の判断は担当者が行う場合の例です。</Heading>
+        <div className="ap-flow-intro">
+          <Heading label="業務改善イメージ" title={<>請求書の手入力を、<br/>確認中心の仕事へ。</>}>入力候補はAIが作り、登録の判断は担当者が行う場合の例です。</Heading>
+          <PartnerPhoto scene="workflow" alt="紙の請求書とノートパソコンの表を照合する担当者" className="ap-photo-workflow"/>
+        </div>
         <div className="ap-flow-head"><span>工程</span><span>導入前</span><span>導入後のイメージ</span></div>
         <ol className="ap-flow-list">{workflow.map(([step, before, after], index) => <li key={step} data-reveal="pop">
           <h3><span aria-hidden="true">0{index + 1}</span>{step}</h3>
@@ -137,9 +171,12 @@ export default function AIPartnerPage() {
           <p className="ap-muted">{start.scope}を想定しています。</p>
           <ConsultLink plan={start.id}>AI STARTに申し込む</ConsultLink>
         </div>
-        <div className="ap-start-content" data-reveal="pop">
-          <h3>AI STARTに含まれる内容</h3>
-          <ul>{start.details.map(detail => <li key={detail}>{detail}</li>)}</ul>
+        <div className="ap-start-side">
+          <PartnerPhoto scene="training" alt="小規模のチームでパソコンを見ながら実践研修を受ける様子" className="ap-photo-training"/>
+          <div className="ap-start-content" data-reveal="pop">
+            <h3>AI STARTに含まれる内容</h3>
+            <ul>{start.details.map(detail => <li key={detail}>{detail}</li>)}</ul>
+          </div>
         </div>
       </div>
     </section>
@@ -148,12 +185,25 @@ export default function AIPartnerPage() {
       <div className="ap-wrap">
         <Heading label="サービス・料金" title="課題に合わせて、支援を選ぶ。">無料相談、単発の研修、月額支援、90日間の業務改善、専用システムの開発まで。</Heading>
         <div className="ap-pricing" data-reveal="pop">
-          <div className="ap-pricing-head" aria-hidden="true"><span>サービス</span><span>こんな企業に</span><span>料金（税別）</span><span/></div>
           {plans.map(plan => <details key={plan.id} className={plan.id === 'start' ? 'ap-priority' : undefined}>
-            <summary><span>{plan.name}</span><span>{plan.purpose}</span><span><small>{plan.period}</small> {plan.price}</span><span aria-hidden="true" className="ap-plus"/></summary>
-            <div className="ap-plan-details"><p>{plan.scope}</p><ul>{plan.details.map(detail => <li key={detail}>{detail}</li>)}</ul><ConsultLink plan={plan.id} className="ap-text-link">{plan.id === 'start' ? 'AI STARTに申し込む' : '無料で相談する'}</ConsultLink></div>
+            <summary>
+              <span className="ap-plan-name">{plan.name}</span>
+              <span className="ap-plan-purpose">{plan.purpose}</span>
+              <span className="ap-plan-price"><small>{plan.period}</small> {plan.price}</span>
+              <span className="ap-plan-outcome">{plan.outcome}</span>
+              <span className="ap-plan-more">支援内容を見る <span aria-hidden="true" className="ap-plus"/></span>
+            </summary>
+            <div className="ap-plan-details">
+              <p>{plan.scope}</p>
+              {plan.id === 'partner' ? <ol className="ap-plan-timeline">{plan.details.map(detail => {
+                const [month, task] = detail.split('｜');
+                return <li key={month}><strong>{month}</strong><span>{task}</span></li>;
+              })}</ol> : <ul>{plan.details.map(detail => <li key={detail}>{detail}</li>)}</ul>}
+              <ConsultLink plan={plan.id} className="ap-text-link">{plan.id === 'start' ? 'AI STARTに申し込む' : '無料で相談する'}</ConsultLink>
+            </div>
           </details>)}
         </div>
+        <MonthlyFeeChart/>
         <p className="ap-fineprint">すべて税別です。外部AIツール利用料、追加訪問、大規模な個別開発などは別途お見積もりとなります。記載の対応時間は目安です。詳細な提供条件はご提案時にお伝えします。</p>
       </div>
     </section>

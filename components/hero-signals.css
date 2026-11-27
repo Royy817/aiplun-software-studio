@@ -46,9 +46,11 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .sx-home:not(.sx-paused) .sx-type-char {
-    --type-delay: calc(160ms + var(--type-step) * 76ms);
-    animation: sx-type-reveal 1ms step-end var(--type-delay) both;
+  .sx-home:not(.sx-paused) .sx-typing .sx-type-char {
+    animation-name: sx-type-reveal;
+    animation-duration: 1ms;
+    animation-timing-function: step-end;
+    animation-fill-mode: backwards;
   }
 }
 .studio-motion-paused .sx-home .sx-type-char { animation: none; }

@@ -25,3 +25,6 @@
 @media(max-width:1000px){.capability-card{padding:28px}.capability-bottom{flex-wrap:wrap;gap:8px}.capability-bottom a{width:100%;justify-content:space-between}.capability-consult{align-items:flex-start;flex-direction:column}}
 @media(max-width:650px){.capability-grid{grid-template-columns:1fr;gap:20px}.capability-card{padding:28px 24px}.capability-top{margin-bottom:20px}.capability-card h3{font-size:25px}.capability-headline{font-size:18px}.capability-examples{padding:16px}.capability-english{font-size:10px;letter-spacing:1.2px}.capability-consult{margin-top:24px;padding-top:16px;gap:20px}.capability-consult p{font-size:17px}.capability-consult .button{width:100%;gap:12px;padding:17px 20px}}
 @media(prefers-reduced-motion:reduce){.capability-card,.capability-bottom a span{transition:none}}
+
+.capability-links { display: grid; gap: 4px; }
+.capability-links a { width: 100%; justify-content: space-between; }

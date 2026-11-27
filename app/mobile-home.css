@@ -33,10 +33,10 @@
  .home-page .section-note{display:none}
 
  /* Horizontal swipe rows (3–4 cards, next card peeks so the row reads as swipeable). */
- .home-page .audience-grid,.home-page .capability-grid,.home-page .work-gallery,.home-page .blog-cards,.home-page .consultation-outcomes{
+ .home-page .audience-grid,.home-page .work-gallery,.home-page .blog-cards,.home-page .consultation-outcomes{
   display:flex!important;grid-template-columns:none!important;gap:12px!important;overflow-x:auto;scroll-snap-type:x mandatory;
   margin-inline:-20px;padding:2px 20px 14px;scroll-padding-inline:20px;overscroll-behavior-x:contain;scrollbar-width:thin}
- .home-page .audience-grid>*,.home-page .capability-grid>*,.home-page .work-gallery>*,.home-page .blog-cards>*,.home-page .consultation-outcomes>*{
+ .home-page .audience-grid>*,.home-page .work-gallery>*,.home-page .blog-cards>*,.home-page .consultation-outcomes>*{
   flex:0 0 84%;min-width:0;scroll-snap-align:start;margin:0!important}
 
  /* ---------- 1. Hero: fit the message and buttons in the first screen ---------- */

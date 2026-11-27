@@ -1,54 +1,49 @@
 import ServiceIcon from './ServiceIcon';
+
 const services = [
   {
-    name: 'AI業務自動化', english: 'AI & AUTOMATION', slug: 'ai-automation', tone: 'ai',
-    headline: ['繰り返す仕事を減らし、', '人が動ける時間をつくる。'],
-    description: '問い合わせ対応や資料検索、毎日の定型作業を効率化。現在の業務を整理し、AIに任せる仕事と人が担う仕事を見極めます。',
-    examples: ['問い合わせ・社内FAQ', '資料検索・文章作成の補助', 'LINE・メールの自動送信'],
-    scope: '業務分析 → 検証 → 実装 → 運用改善',
-    proof: { label: '業種別のAI導入イメージを見る', href: '/services/ai-automation#ai-impact' },
+    name: 'AI導入・業務改善',
+    english: 'AI & BUSINESS IMPROVEMENT',
+    tone: 'ai',
+    need: '転記、集計、問い合わせ対応など、今ある仕事を減らしたい',
+    description: '負担が大きい業務を見つけ、既存ツールの導入、社員研修、自動化まで支援します。',
+    examples: ['請求書の転記・集計', '問い合わせの返信案', '社内資料の検索'],
+    links: [{ label: 'AI導入支援・料金を見る', href: '/services/ai-automation' }],
   },
   {
-    name: '業務システム開発', english: 'BUSINESS SYSTEMS', slug: 'business-systems', tone: 'system',
-    headline: ['散らばる情報をつなぎ、', '日々の手間を仕組みに変える。'],
-    description: '紙・Excel・チャットに分かれた情報を一元管理。現場の流れに合わせたシステムで、転記や確認にかかる手間を減らします。',
-    examples: ['顧客・案件・予約管理', '在庫管理・社内ポータル', '既存ツールとの連携'],
-    scope: '業務整理 → 設計 → 開発 → 導入支援',
-    proof: { label: '自社開発の実績：クエストAI（LINE連携CRM）', href: '#quest-ai' },
-  },
-  {
-    name: 'Webサイト制作', english: 'WEB DESIGN & DEVELOPMENT', slug: 'web-production', tone: 'web',
-    headline: ['事業の魅力を伝え、', '次の問い合わせにつなげる。'],
-    description: '会社やサービスの強みを、伝わる言葉とデザインへ。スマホでの見やすさ、検索からの入口、相談までの導線を整えます。',
-    examples: ['コーポレートサイト', 'サービスサイト・LP', 'SEOの整備・保守・改善'],
-    scope: '構成 → デザイン → 実装 → 公開',
-    proof: { label: '制作サンプル：SUIREN・KOMOREBI', href: '#web-projects' },
-  },
-  {
-    name: 'アプリ・MVP開発', english: 'APP & MVP DEVELOPMENT', slug: 'app-development', tone: 'app',
-    headline: ['アイデアを形にして、', '使われるサービスへ育てる。'],
-    description: '新規サービスの小さな検証から、iOS・Androidアプリの公開まで。まず必要な機能を絞り、利用者の声をもとに改善を重ねます。',
-    examples: ['新規サービス・MVP', '予約・マッチングアプリ', '既存アプリの機能改善'],
-    scope: '企画 → UI・UX設計 → 開発 → 公開',
-    proof: { label: '自社開発の実績：アイプラ（公開済みアプリ）', href: '#aiplun-app' },
+    name: 'システム・アプリ開発',
+    english: 'SYSTEM & APP DEVELOPMENT',
+    tone: 'system',
+    need: '顧客管理、予約、新規サービスなど、自社に合う仕組みをつくりたい',
+    description: '現場の業務や新規事業のアイデアを整理し、必要な機能の設計から開発・運用まで支援します。',
+    examples: ['顧客・案件・予約管理', '既存ツールとの連携', '新規サービスのアプリ・MVP'],
+    links: [
+      { label: '業務システム開発を見る', href: '/services/business-systems' },
+      { label: 'アプリ・MVP開発を見る', href: '/services/app-development' },
+    ],
   },
 ];
-
 
 export default function Services() {
   return <div className="capabilities">
     <div className="capability-grid">
-      {services.map((service, index) => <article className={`capability-card capability-${service.tone}`} key={service.slug} data-reveal>
-        <div className="capability-top"><span className="capability-icon"><ServiceIcon type={service.tone}/></span><span className="capability-number">0{index + 1}</span></div>
+      {services.map((service, index) => <article className={`capability-card capability-${service.tone}`} key={service.tone} data-reveal>
+        <div className="capability-top">
+          <span className="capability-icon"><ServiceIcon type={service.tone}/></span>
+          <span aria-hidden="true" className="capability-number">0{index + 1}</span>
+        </div>
         <p className="capability-english">{service.english}</p>
         <h3>{service.name}</h3>
-        <p className="capability-headline">{service.headline[0]}<br/>{service.headline[1]}</p>
+        <p className="capability-headline">{service.need}</p>
         <p className="capability-description">{service.description}</p>
-        <div className="capability-examples"><p>できること</p><ul>{service.examples.map(example => <li key={example}>{example}</li>)}</ul></div>
-        {service.proof && <a className="capability-proof" href={service.proof.href}>{service.proof.label}<span aria-hidden="true">↓</span></a>}
-        <div className="capability-bottom"><p>{service.scope}</p><a href={`/services/${service.slug}`} aria-label={`${service.name}の詳細を見る`}>詳しく見る<span aria-hidden="true">↗</span></a></div>
+        <div className="capability-examples">
+          <p>相談できること</p>
+          <ul>{service.examples.map(example => <li key={example}>{example}</li>)}</ul>
+        </div>
+        <div className="capability-bottom capability-links">
+          {service.links.map(({ href, label }) => <a key={href} href={href}>{label}<span aria-hidden="true">↗</span></a>)}
+        </div>
       </article>)}
     </div>
-    <div className="capability-consult"><div><p>何から始めればいいか、まだ決まっていなくても。</p><span>今の課題を伺い、4つの領域から必要な方法をご提案します。</span></div><a className="button dark" href="#contact">自社に合う方法を相談する <span aria-hidden="true">↗</span></a></div>
   </div>;
 }
