@@ -26,10 +26,17 @@ export default function Motion() {
   const animate = (element, delay = 0, heading = false) => {
    if (revealed.has(element)) return;
    revealed.add(element);
-   const animation = element.animate([
+   const pop = element.dataset.reveal === 'pop';
+   const compact = pop && window.matchMedia('(max-width: 760px)').matches;
+   const frames = pop ? [
+    {opacity:.82, transform:compact ? 'translateY(7px)' : 'translateY(13px) scale(.987)'},
+    ...(!compact ? [{opacity:1, transform:'translateY(0) scale(1.004)', offset:.74}] : []),
+    {opacity:1, transform:'none'},
+   ] : [
     {opacity:heading ? .76 : .72, transform:`translateY(${heading ? 10 : 8}px)`},
     {opacity:1, transform:'translateY(0)'},
-   ], {duration:heading ? 480 : 360, delay, easing:'cubic-bezier(.16,1,.3,1)', fill:'backwards'});
+   ];
+   const animation = element.animate(frames, {duration:pop ? (compact ? 280 : 440) : heading ? 480 : 360, delay, easing:'cubic-bezier(.16,1,.3,1)', fill:'backwards'});
    animations.add(animation);
    animation.onfinish = () => animations.delete(animation);
   };

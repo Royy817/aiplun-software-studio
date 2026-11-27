@@ -16,7 +16,7 @@ const departments = [
 export function PartnerNetwork() {
   const [active, setActive] = useState(0);
   return (
-    <figure className="ap-network">
+    <figure className="ap-network" data-reveal="pop">
       <figcaption><span>AIPLUN × あなたの会社</span><span>業務連携イメージ</span></figcaption>
       <div className="ap-network-map">
         <div className="ap-network-orbits" aria-hidden="true"><i/><i/><i/></div>

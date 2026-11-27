@@ -45,7 +45,7 @@ const faqs = [
 ];
 
 function Heading({ label, title, children }) {
-  return <header className="ap-heading" data-reveal>
+  return <header className="ap-heading" data-reveal="pop">
     <div><p className="ap-kicker">{label}</p><h2>{title}</h2></div>
     {children && <p className="ap-section-intro">{children}</p>}
   </header>;
@@ -73,10 +73,9 @@ export default function AIPartnerPage() {
       <div className="ap-wrap">
         <div className="ap-hero-top">
           <p className="ap-wordmark"><span aria-hidden="true"/> AIPLUN AI PARTNER</p>
-          <nav aria-label="AI導入支援ページ内の移動"><a href="#pricing">サービス・料金</a><a href="#ai-impact">活用イメージ</a><a href="#ai-diagnosis">AI導入診断</a></nav>
         </div>
         <div className="ap-hero-grid">
-          <div className="ap-hero-copy">
+          <div className="ap-hero-copy" data-reveal="pop">
             <p className="ap-kicker">京都・大阪を中心とした中小企業向け</p>
             <h1>あなたの会社に、<br/><em>AI専門部門</em>を。</h1>
             <p className="ap-hero-lead">AIを使いたい。でも、何から始めればいいか分からない。</p>
@@ -90,10 +89,19 @@ export default function AIPartnerPage() {
       </div>
     </section>
 
+    <nav className="ap-jump" aria-label="AI導入支援ページ内の移動">
+      <div className="ap-wrap">
+        <a href="#pricing">サービス・料金</a>
+        <a href="#ai-impact">活用例</a>
+        <a href="#ai-diagnosis">AI導入診断</a>
+        <a className="ap-jump-contact" href="#contact-form">無料で相談する <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+
     <section className="ap-section ap-paper">
       <div className="ap-wrap ap-editorial">
         <Heading label="中小企業のAI導入" title={<>AIを使いたい。<br/>現場では、何から？</>}/>
-        <ol className="ap-problems">{problems.map(([title, copy], index) => <li key={title} data-reveal><span aria-hidden="true">0{index + 1}</span><div><h3>{title}</h3><p>{copy}</p></div></li>)}</ol>
+        <ol className="ap-problems">{problems.map(([title, copy], index) => <li key={title} data-reveal="pop"><span aria-hidden="true">0{index + 1}</span><div><h3>{title}</h3><p>{copy}</p></div></li>)}</ol>
       </div>
     </section>
 
@@ -101,9 +109,9 @@ export default function AIPartnerPage() {
       <div className="ap-wrap">
         <Heading label="AIPLUNの支援範囲" title="現場で使い続けられる形まで。">専任のAI担当を置きにくい企業のために、導入の判断から日々の運用まで支援します。</Heading>
         <div className="ap-promise">
-          <article data-reveal><h3>減らしたい仕事を決める</h3><p>人手に頼っている作業を洗い出し、負担が大きく、効果を確かめやすい業務を選びます。</p></article>
-          <article data-reveal><h3>現場で使える形にする</h3><p>ツールの使い方を教え、業務手順に組み込みます。既存ツールで足りない部分は個別開発も可能です。</p></article>
-          <article data-reveal><h3>負担が減ったか確かめる</h3><p>作業時間や確認の手戻りを測り、社内で続けるための手順と改善点を整理します。</p></article>
+          <article data-reveal="pop"><h3>減らしたい仕事を決める</h3><p>人手に頼っている作業を洗い出し、負担が大きく、効果を確かめやすい業務を選びます。</p></article>
+          <article data-reveal="pop"><h3>現場で使える形にする</h3><p>ツールの使い方を教え、業務手順に組み込みます。既存ツールで足りない部分は個別開発も可能です。</p></article>
+          <article data-reveal="pop"><h3>負担が減ったか確かめる</h3><p>作業時間や確認の手戻りを測り、社内で続けるための手順と改善点を整理します。</p></article>
         </div>
       </div>
     </section>
@@ -112,7 +120,7 @@ export default function AIPartnerPage() {
       <div className="ap-wrap">
         <Heading label="業務改善イメージ" title={<>請求書の手入力を、<br/>確認中心の仕事へ。</>}>入力候補はAIが作り、登録の判断は担当者が行う場合の例です。</Heading>
         <div className="ap-flow-head"><span>工程</span><span>導入前</span><span>導入後のイメージ</span></div>
-        <ol className="ap-flow-list">{workflow.map(([step, before, after], index) => <li key={step} data-reveal>
+        <ol className="ap-flow-list">{workflow.map(([step, before, after], index) => <li key={step} data-reveal="pop">
           <h3><span aria-hidden="true">0{index + 1}</span>{step}</h3>
           <p><span>導入前</span>{before}</p>
           <p><span>導入後</span>{after}</p>
@@ -122,14 +130,14 @@ export default function AIPartnerPage() {
 
     <section className="ap-section ap-paper" id="ai-start">
       <div className="ap-wrap ap-start">
-        <div data-reveal>
+        <div data-reveal="pop">
           <p className="ap-kicker">{start.name}</p>
           <h2>まずは、1部署で。<br/>自社の仕事でAIを試す。</h2>
           <p className="ap-start-price"><small>{start.period}</small> {start.price} <small>税別</small></p>
           <p className="ap-muted">{start.scope}を想定しています。</p>
           <ConsultLink plan={start.id}>AI STARTに申し込む</ConsultLink>
         </div>
-        <div className="ap-start-content" data-reveal>
+        <div className="ap-start-content" data-reveal="pop">
           <h3>AI STARTに含まれる内容</h3>
           <ul>{start.details.map(detail => <li key={detail}>{detail}</li>)}</ul>
         </div>
@@ -139,7 +147,7 @@ export default function AIPartnerPage() {
     <section className="ap-section" id="pricing">
       <div className="ap-wrap">
         <Heading label="サービス・料金" title="課題に合わせて、支援を選ぶ。">無料相談、単発の研修、月額支援、90日間の業務改善、専用システムの開発まで。</Heading>
-        <div className="ap-pricing">
+        <div className="ap-pricing" data-reveal="pop">
           <div className="ap-pricing-head" aria-hidden="true"><span>サービス</span><span>こんな企業に</span><span>料金（税別）</span><span/></div>
           {plans.map(plan => <details key={plan.id} className={plan.id === 'start' ? 'ap-priority' : undefined}>
             <summary><span>{plan.name}</span><span>{plan.purpose}</span><span><small>{plan.period}</small> {plan.price}</span><span aria-hidden="true" className="ap-plus"/></summary>
@@ -175,7 +183,7 @@ export default function AIPartnerPage() {
     <section className="ap-section" id="development-work">
       <div className="ap-wrap">
         <Heading label="開発実績・支援体制" title="業務に合わせて、開発まで。">Aiplun Studioが窓口となり、相談から設計・実装・運用まで対応します。</Heading>
-        <article className="ap-case" data-reveal>
+        <article className="ap-case" data-reveal="pop">
           <div className="ap-case-image"><Image src="/quest-ai-dashboard.webp" alt="クエストAIの顧客・セミナー管理画面" width={1280} height={800} sizes="(max-width: 760px) 100vw, 60vw"/></div>
           <div><p className="ap-kicker">自社開発・LINE連携CRM</p><h3>クエストAI</h3><p>セミナー申込み、LINE案内、QR受付、アンケートをまとめた自社開発システムです。</p><a className="ap-text-link" href="/works/quest-ai">開発実績を見る ↗</a><a className="ap-text-link" href="/services/seminar-automation">セミナー運営の自動化を見る ↗</a></div>
         </article>
@@ -186,7 +194,7 @@ export default function AIPartnerPage() {
     <section className="ap-section ap-paper">
       <div className="ap-wrap">
         <Heading label="導入までの流れ" title="一つの業務から、順を追って。"/>
-        <ol className="ap-steps">{steps.map(([title, desc], index) => <li key={title} data-reveal><span>0{index + 1}</span><h3>{title}</h3><p>{desc}</p></li>)}</ol>
+        <ol className="ap-steps">{steps.map(([title, desc], index) => <li key={title} data-reveal="pop"><span>0{index + 1}</span><h3>{title}</h3><p>{desc}</p></li>)}</ol>
         <aside className="ap-security" aria-label="セキュリティ・AI利用方針">
           <p className="ap-kicker">セキュリティ・AI利用方針</p><h3>情報の扱いも、導入前に決めます。</h3>
           <ul><li>個人情報・機密情報は、入力できる範囲と利用環境を事前に確認します。</li><li>利用ツールの学習設定・データの保存条件・アクセス権限を確認します。</li><li>社外への送信や重要な判断には、担当者による確認手順を設けます。</li></ul>
@@ -203,7 +211,7 @@ export default function AIPartnerPage() {
 
     <section className="ap-section ap-dark" id="contact">
       <div className="ap-wrap ap-contact-layout">
-        <div data-reveal><p className="ap-kicker">AI CONSULT / 初回20〜30分</p><h2 id="ap-contact-heading">今、時間がかかる仕事を<br/>ひとつ教えてください。</h2><p>現在のやり方を伺い、AIで支援できそうな業務と、始める場合の進め方を整理します。</p><p className="ap-contact-note">初回無料 · 京都・大阪を中心に全国オンライン対応</p></div>
+        <div data-reveal="pop"><p className="ap-kicker">AI CONSULT / 初回20〜30分</p><h2 id="ap-contact-heading">今、時間がかかる仕事を<br/>ひとつ教えてください。</h2><p>現在のやり方を伺い、AIで支援できそうな業務と、始める場合の進め方を整理します。</p><p className="ap-contact-note">初回無料 · 京都・大阪を中心に全国オンライン対応</p></div>
         <PartnerContact/>
       </div>
     </section>

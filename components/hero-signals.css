@@ -44,3 +44,28 @@
  28%{transform:translate(-50%,-50%) rotateX(20deg) rotateY(-21deg) rotateZ(-10deg) scale(.96)}
  57%{transform:translate(-50%,calc(-50% + var(--impact-lift))) rotateX(3deg) rotateY(-6deg) rotateZ(-4deg) scale(var(--impact-scale))}
 }
+
+.sx-type-char { position: relative; }
+@media (prefers-reduced-motion: no-preference) {
+  .sx-home:not(.sx-paused) .sx-type-char {
+    --type-delay: calc(160ms + var(--type-step) * 76ms);
+    animation: sx-type-reveal 1ms step-end var(--type-delay) both;
+  }
+  .sx-home:not(.sx-paused) .sx-type-char::after {
+    content: '';
+    position: absolute;
+    inset: .17em -.035em .12em auto;
+    width: .035em;
+    background: currentColor;
+    pointer-events: none;
+    animation: sx-type-caret 76ms step-end var(--type-delay) both;
+  }
+}
+.studio-motion-paused .sx-home .sx-type-char,
+.studio-motion-paused .sx-home .sx-type-char::after { animation: none; }
+.studio-motion-paused .sx-home .sx-type-char::after { content: none; }
+@keyframes sx-type-reveal { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sx-type-caret {
+  0%, 99% { opacity: 1; }
+  100% { opacity: 0; }
+}
