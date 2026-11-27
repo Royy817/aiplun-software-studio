@@ -439,3 +439,7 @@
 }
 
 .ap-impact-action > div { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 15px; }
+
+.ap-maintenance { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; background: #fffdfa; scroll-margin-top: 55px; }
+.ap-maintenance > div { flex: 1 1 400px; }
+.ap-maintenance p { margin-top: 6px; color: var(--ap-muted); font-size: 14px; }

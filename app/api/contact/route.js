@@ -36,7 +36,7 @@ export async function POST(request){
  const text=`Webサイトからの無料相談\n\n会社名・屋号：${data.company||'個人・未記入'}\nお名前：${data.name}\n返信先：${data.email}\n予算：${data.budget}\n希望時期：${data.timing}\n個人情報の取り扱い：同意済み\n\n相談内容：\n${data.message}`;
  const digest=createHash('sha256').update(JSON.stringify(data)).digest('hex');
  try{
-  const response=await fetch('https://api.resend.com/emails',{method:'POST',headers:{'Authorization':`Bearer ${process.env.RESEND_API_KEY}`,'Content-Type':'application/json','Idempotency-Key':`consult-${input.requestId}-${digest}`},body:JSON.stringify({from:process.env.CONTACT_FROM_EMAIL,to:[destination],reply_to:data.email,subject:'【AIPLUN】無料相談フォームからのお問い合わせ',text}),signal:AbortSignal.timeout(12000)});
+  const response=await fetch('https://api.resend.com/emails',{method:'POST',headers:{'Authorization':`Bearer ${process.env.RESEND_API_KEY}`,'Content-Type':'application/json','Idempotency-Key':`consult-${input.requestId}-${digest}`},body:JSON.stringify({from:process.env.CONTACT_FROM_EMAIL,to:[destination],reply_to:data.email,subject:'【Aiplun Studio】無料相談フォームからのお問い合わせ',text}),signal:AbortSignal.timeout(12000)});
   const result=await response.json();
   if(!response.ok||!result.id)return reply({message:'送信できませんでした。入力内容を残しています。時間をおいてお試しいただくか、下記メールアドレスへご連絡ください。'},502);
   return reply({ok:true});

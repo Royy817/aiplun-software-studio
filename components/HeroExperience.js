@@ -25,7 +25,7 @@ export default function HeroExperience(){
  }
  function reset(){cancelAnimationFrame(frame.current);root.current?.style.setProperty('--look-x','0deg');root.current?.style.setProperty('--look-y','0deg');}
  return <section className={`opening-hero${paused?' motion-still':''}`} ref={root} aria-labelledby="opening-title">
-  <div className="wrap opening-topline"><span><i aria-hidden="true"/>AIPLUN — AI &amp; SYSTEMS</span><span>KYOTO, JAPAN / WORKING EVERYWHERE</span></div>
+  <div className="wrap opening-topline"><span><i aria-hidden="true"/>AIPLUN STUDIO — AI &amp; SYSTEMS</span><span>KYOTO, JAPAN / WORKING EVERYWHERE</span></div>
   <div className="wrap opening-grid">
    <div className="opening-copy"><p className="opening-location">中小企業・個人事業の経営者、業務担当者の方へ</p><h1 id="opening-title" className="mission-title"><span className="opening-line"><span>毎日の転記・確認、</span></span><span className="opening-line"><span>同じ返信。</span></span><span className="opening-line opening-line-accent"><span>その手間を減らす</span></span><span className="opening-line opening-line-accent"><span>仕組みを、一緒に。</span></span></h1><p className="opening-description">Excel・紙・LINEに散らばる仕事を整理し、既存ツールの活用からAI・システム開発まで、業務に合う方法をご提案。Web制作や新しいアプリの相談にも対応します。</p><div className="opening-actions"><a href="#contact" className="button dark">自社の業務を無料で相談する</a><a href="#works" className="opening-secondary">実績を見る</a></div><p className="opening-copy-note">専門知識は不要／必要ない開発はすすめません／導入後の活用も相談できます</p><OpeningFilm/></div>
    <div className="opening-visual" onPointerMove={tilt} onPointerLeave={reset}>

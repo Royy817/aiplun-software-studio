@@ -7,7 +7,7 @@ const services=[
 ];
 export default function ServiceAssembly(){
  return <div className="service-assembly" aria-labelledby="assembly-title">
-  <div className="assembly-heading"><p>WHAT WE CAN BUILD</p><h2 id="assembly-title">AIPLUNでできること</h2><span>課題やアイデアを、使える仕組みへ。</span></div>
+  <div className="assembly-heading"><p>WHAT WE CAN BUILD</p><h2 id="assembly-title">Aiplun Studioでできること</h2><span>課題やアイデアを、使える仕組みへ。</span></div>
   <div className="assembly-cube-stage" aria-hidden="true"><div className="assembly-cube-shadow"/><div className="assembly-cube-view"><div className="assembly-cube">
    {services.map((service,index)=><div className={'assembly-cube-face cube-face-'+index} key={service.type}><span className="cube-face-number">0{index+1} / AIPLUN</span><span className="cube-face-icon"><ServiceIcon type={service.type}/></span><strong>{service.name}</strong><span className="cube-face-caption">{service.after}</span><span className="cube-face-line"/></div>)}
    <div className="assembly-cube-face cube-face-top"><span>AIPLUN</span><small>IDEAS INTO REALITY</small></div><div className="assembly-cube-face cube-face-bottom"/>

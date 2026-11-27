@@ -11,7 +11,7 @@ const seo = pageMetadata(route);
 const shareImage = siteUrl + '/media/ai-partner-og.png';
 export const metadata = {
   ...seo,
-  openGraph: { ...seo.openGraph, images: [{ url: shareImage, width: 1200, height: 630, alt: 'AIPLUN AI PARTNER by AIPLUN' }] },
+  openGraph: { ...seo.openGraph, images: [{ url: shareImage, width: 1200, height: 630, alt: 'AIPLUN AI PARTNER by Aiplun Studio' }] },
   twitter: { ...seo.twitter, images: [shareImage] },
 };
 
@@ -152,8 +152,8 @@ export default function AIPartnerPage() {
           <div className="ap-hero-copy" data-reveal="pop">
             <p className="ap-kicker">京都・大阪を中心とした中小企業向け</p>
             <h1>あなたの会社に、<br/><em>AI専門部門</em>を</h1>
-            <p className="ap-hero-lead">AIを使いたい。でも、何から始めればいいか分からない。</p>
-            <p className="ap-hero-description">AIPLUNは、AIの導入から社員教育、業務改善、<wbr/>システム開発まで一貫して支援します。</p>
+            <p className="ap-hero-lead">転記や集計に追われる時間を、接客や提案に。</p>
+            <p className="ap-hero-description">まずは繰り返しの多い1業務から。AIツールの選定、社員研修、自動化、運用まで、必要な範囲で伴走します。</p>
             <p className="ap-hero-price">AI導入支援、単発 <strong>2万円</strong> から <small>税別</small></p>
             <div className="ap-hero-actions"><ConsultLink/><a className="ap-button ap-outline" href="#pricing">サービス・料金を見る <span aria-hidden="true">↓</span></a></div>
             <p className="ap-hero-meta">初回相談20〜30分 <span aria-hidden="true">/</span> 全国オンライン対応</p>
@@ -280,7 +280,7 @@ export default function AIPartnerPage() {
 
     <section className="ap-section" id="development-work">
       <div className="ap-wrap">
-        <Heading label="開発実績・支援体制" title="業務に合わせて、開発まで。">AIPLUNが窓口となり、相談から設計・実装・運用まで対応します。</Heading>
+        <Heading label="開発実績・支援体制" title="業務に合わせて、開発まで。">Aiplun Studioが窓口となり、相談から設計・実装・運用まで対応します。</Heading>
         <article className="ap-case" data-reveal="pop">
           <div className="ap-case-image"><Image src="/quest-ai-dashboard.webp" alt="クエストAIの顧客・セミナー管理画面" width={1280} height={800} sizes="(max-width: 760px) 100vw, 60vw"/></div>
           <div><p className="ap-kicker">自社開発・LINE連携CRM</p><h3>クエストAI</h3><p>セミナー申込み、LINE案内、QR受付、アンケートをまとめた自社開発システムです。</p><a className="ap-text-link" href="/works/quest-ai">開発実績を見る ↗</a><a className="ap-text-link" href="/services/seminar-automation">セミナー運営の自動化を見る ↗</a></div>
@@ -293,6 +293,13 @@ export default function AIPartnerPage() {
       <div className="ap-wrap">
         <Heading label="導入までの流れ" title="一つの業務から、順を追って。"/>
         <ol className="ap-steps">{steps.map(([title, desc], index) => <li key={title} data-reveal="pop"><span>0{index + 1}</span><h3>{title}</h3><p>{desc}</p></li>)}</ol>
+        <aside className="ap-security ap-maintenance" aria-labelledby="ap-maintenance-heading" id="maintenance">
+          <div>
+            <h3 id="ap-maintenance-heading">導入後の保守・運用も、個別にご相談ください。</h3>
+            <p>AIツールの設定変更、業務フローの見直し、システムの運用など。現在の環境とご希望を伺い、対応範囲・頻度・費用をご案内します。</p>
+          </div>
+          <ConsultLink plan="maintenance">保守・運用を相談する</ConsultLink>
+        </aside>
         <aside className="ap-security" aria-label="セキュリティ・AI利用方針">
           <p className="ap-kicker">セキュリティ・AI利用方針</p><h3>情報の扱いも、導入前に決めます。</h3>
           <ul><li>個人情報・機密情報は、入力できる範囲と利用環境を事前に確認します。</li><li>利用ツールの学習設定・データの保存条件・アクセス権限を確認します。</li><li>社外への送信や重要な判断には、担当者による確認手順を設けます。</li></ul>

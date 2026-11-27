@@ -4,6 +4,11 @@ import { useEffect, useRef, useState } from 'react';
 import { diagnosisQuestions, plans, readAttribution } from '../../lib/ai-partner.mjs';
 import { validateContact } from '../../lib/contact.mjs';
 
+const supportOptions = [
+  ...plans,
+  { id: 'maintenance', name: '保守・運用の個別相談' },
+];
+
 export default function PartnerContact() {
   const [plan, setPlan] = useState('consult');
   const [diagnosis, setDiagnosis] = useState(null);
@@ -25,7 +30,7 @@ export default function PartnerContact() {
       .catch(() => { if (!controller.signal.aborted) setReady(false); });
 
     function applyPlan(id) {
-      if (plans.some(plan => plan.id === id)) setPlan(id);
+      if (supportOptions.some(option => option.id === id)) setPlan(id);
     }
 
     applyPlan(new URLSearchParams(window.location.search).get('plan'));
@@ -64,7 +69,7 @@ export default function PartnerContact() {
     event.preventDefault();
     if (sending.current || phase === 'sent' || !ready) return;
     const input = Object.fromEntries(new FormData(event.currentTarget));
-    const selectedPlan = plans.find(item => item.id === plan);
+    const selectedPlan = supportOptions.find(item => item.id === plan);
     const context = diagnosis ? diagnosisQuestions.map(({ name, label, options }) => label + '：' + options[diagnosis[name]]) : [];
     const { errors } = validateContact(input);
     setErrors(errors);
@@ -123,7 +128,7 @@ export default function PartnerContact() {
           <label>会社名・屋号 <small>任意</small><input autoComplete="organization" name="company" maxLength={120} {...errorProps('company')}/>{errorText('company')}</label>
         </div>
         <label>メールアドレス <small>必須</small><input type="email" autoComplete="email" name="email" maxLength={254} required {...errorProps('email')}/>{errorText('email')}</label>
-        <label>希望する支援<select value={plan} onChange={event => { setPlan(event.target.value); setDiagnosis(null); }}>{plans.map(item => <option key={item.id} value={item.id}>{item.name} / {item.purpose}</option>)}</select></label>
+        <label>希望する支援<select id="ap-contact-plan" value={plan} onChange={event => { setPlan(event.target.value); setDiagnosis(null); }}>{supportOptions.map(item => <option key={item.id} value={item.id}>{item.purpose ? item.name + ' / ' + item.purpose : item.name}</option>)}</select></label>
         {diagnosis && <p className="ap-diagnosis-note">診断の回答を引き継ぎました。<button type="button" onClick={() => setDiagnosis(null)}>回答を外す</button></p>}
         <label>ご相談内容 <small>必須</small><textarea name="message" rows={3} maxLength={1900} required placeholder="例：毎週の報告書づくりに時間がかかっています。" {...errorProps('message')}/>{errorText('message')}</label>
         <div hidden><label>Website<input name="website" tabIndex={-1} autoComplete="off"/></label></div>

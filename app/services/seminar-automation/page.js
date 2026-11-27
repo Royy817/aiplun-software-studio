@@ -21,7 +21,7 @@ export default function SeminarAutomation(){
  const monthly=model.savedHours*model.hourlyCost;
  const url=siteUrl+'/services/seminar-automation';
  const schema={'@context':'https://schema.org','@graph':[
-  {'@type':'Service',name:'セミナー運営・LINE連携の業務自動化',url,description:metadata.description,serviceType:'セミナー運営の業務自動化・システム開発',provider:{'@type':'Organization','@id':siteUrl+'/#organization',name:'AIPLUN',url:siteUrl},areaServed:{'@type':'Country',name:'日本'}},
+  {'@type':'Service',name:'セミナー運営・LINE連携の業務自動化',url,description:metadata.description,serviceType:'セミナー運営の業務自動化・システム開発',provider:{'@type':'Organization','@id':siteUrl+'/#organization',name:'Aiplun Studio',url:siteUrl},areaServed:{'@type':'Country',name:'日本'}},
   {'@type':'BreadcrumbList',itemListElement:[{name:'ホーム',item:siteUrl+'/'},{name:'AI導入・業務自動化',item:siteUrl+'/services/ai-automation'},{name:'セミナー運営の自動化',item:url}].map((item,index)=>({'@type':'ListItem',position:index+1,...item}))}
  ]};
  return <main id="main-content" className="seminar-page wrap">
