@@ -9,6 +9,7 @@ export default function MobileActionBar(){
   const hero=document.querySelector('.opening-actions');
   const contact=document.getElementById('contact');
   let heroInView=Boolean(hero),contactInView=false;
+  if (!('IntersectionObserver' in window)) return;
   const observer=new IntersectionObserver(entries=>{
    entries.forEach(entry=>{
     if(entry.target===hero)heroInView=entry.isIntersecting;
