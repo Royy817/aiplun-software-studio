@@ -53,7 +53,14 @@ export function PartnerIndustries() {
     </div>
     {industryExamples.map((example, index) => (
       <div className="ap-industry-panel" key={example.name} role="tabpanel" id={'ap-industry-panel-' + index} aria-labelledby={'ap-industry-tab-' + index} tabIndex={0} hidden={active !== index}>
-        <h3>{example.title}</h3>
+        <div className="ap-industry-case">
+          <p className="ap-industry-case-label">公開事例 <span>{example.caseStudy.type}</span></p>
+          <h3>{example.caseStudy.company}</h3>
+          <p>{example.caseStudy.description}</p>
+          <p className="ap-industry-source"><a href={example.caseStudy.url}>{example.caseStudy.publisher}の公開資料</a><time dateTime={example.caseStudy.date}>{example.caseStudy.date.replaceAll('-', '.')}</time></p>
+        </div>
+        <p className="ap-industry-case-label">自社で試すなら</p>
+        <h3 className="ap-industry-scenario">{example.title}</h3>
         <dl>
           <div><dt>今の仕事</dt><dd>{example.before}</dd></div>
           <div><dt>AIで支援</dt><dd>{example.after}</dd></div>

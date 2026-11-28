@@ -267,7 +267,7 @@ export default function AIPartnerPage() {
 
     <section className="ap-section ap-paper" id="ai-impact">
       <div className="ap-wrap" id="ai-industry-examples">
-        <Heading label="業界別AI活用" title={['自社の仕事に', '置き換えてみる。']}>営業、建設、不動産、バックオフィスでの活用イメージです。</Heading>
+        <Heading label="業界別AI活用" title={['自社の仕事に', '置き換えてみる。']}>営業、建設、不動産、バックオフィスの公開事例から、自社で試せる業務を見つけてみましょう。</Heading>
         <PartnerIndustries/>
       </div>
     </section>
